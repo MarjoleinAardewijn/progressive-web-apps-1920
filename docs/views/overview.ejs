@@ -1,0 +1,17 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/header.ejs') %>
+
+<main>
+    <div id="objects" class="objects">
+        <% overviewData.map(item => { %>
+            <a href="/schilderij/<%= item.objectNumber %>" class="link">
+                <div class="object">
+                    <img src="<%= item.webImage.url %>">
+                    <div class="title">
+                        <h3 class="title-name"><%= item.title %></h3>
+                    </div>
+                </div>
+            </a>
+        <% }); %>
+    </div>
+</main>
