@@ -1,0 +1,39 @@
+.details .object .title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.details .object .title .title-objectnumber {
+    margin-left: 0.5rem;
+    margin-bottom: 10px;
+    color: hsl(0, 0%, 70%);
+}
+
+.details .object .image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.details .object img {
+    max-width: 100%;
+    max-height: 40vh;
+    box-shadow: var(--box-shadow);
+}
+
+.details .colors ul {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.details .hex-color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+    margin: 0.5rem;
+}
