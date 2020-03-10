@@ -1,10 +1,15 @@
 <header>
-    <h1>Rijksmuseum schilders</h1>
-</header>
+    <nav>
+        <ul><li><a href="/">Home</a></li></ul>
+        <ul><li><a href="/schilderijen">Schilderijen</a></li></ul>
+    </nav>
 
-<div class="search" id="search">
-    <label>
-        <input type="text" placeholder="Search for a painter..." id="userInputMaker">
-    </label>
-    <button type="button"><i class="fas fa-search fa-2x"></i></button>
-</div>
+    <div class="search" id="search">
+        <form method="get" action="/search">
+            <label>
+                <input type="search" name="artist"/>
+                <i class="fas fa-search fa-2x"></i>
+            </label>
+        </form>
+    </div>
+</header>

@@ -1,10 +1,12 @@
-<%- include('partials/head.ejs') %>
-<%- include('partials/header.ejs') %>
+<%- include('partials/head') %>
+<%- include('partials/header') %>
 
 <main>
+    <h2>Results for <%= query %></h2>
+
     <div id="objects" class="objects">
-        <% if(overviewData.length !== 0) {%>
-            <% overviewData.map(item => { %>
+        <% if(searchData.length !== 0) {%>
+            <% searchData.map(item => { %>
                 <a href="/schilderij/<%= item.objectNumber %>" class="link">
                     <div class="object">
                         <img src="<%= item.webImage ? item.webImage.url : 'Geen afbeelding' %>">
@@ -19,3 +21,6 @@
         <% }%>
     </div>
 </main>
+
+</body>
+</html>
