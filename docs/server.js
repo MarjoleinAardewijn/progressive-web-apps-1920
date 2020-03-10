@@ -29,20 +29,20 @@ const endpoint = 'https://www.rijksmuseum.nl/api/nl/collection',
 
 app.get('/', function(req, res) {
    res.render('home', {
-       styles: './css/styles.css',
+       styles: './css/index.css',
        title: 'Rijksmusuem Schilders'
    })
 });
 
 // Create a home route
-app.get('/schilderijen', async function(req, res) {
+app.get('/rembrandt-van-rijn', async function(req, res) {
     const response = await fetch(urlOverview);
     const jsonData = await response.json();
     const overviewData = jsonData.artObjects;
 
     res.render('overview', {
-        styles: './css/styles.css',
-        title: 'Schilderijen',
+        styles: './css/index.css',
+        title: 'Schilderijen van Rembrandt van Rijn',
         overviewData
     });
 
@@ -56,8 +56,10 @@ app.get('/schilderij/:id', async function(req, res) {
     const jsonData = await response.json();
     const detailsData = jsonData.artObject;
 
+    // console.log(detailsData);
+
     res.render('details', {
-        styles: './../css/styles.css',
+        styles: './../css/index.css',
         title: detailsData.title, // We use this for the page title, see views/partials/head.ejs
         detailsData
     });
@@ -74,7 +76,7 @@ app.get('/search', async function(req, res) {
         const searchData = jsonData.artObjects;
 
         res.render('results', {
-            styles: './../css/styles.css',
+            styles: './css/index.css',
             title: `Resultaten voor ${artist}`,
             query: artist, // We use this for the page title, see views/partials/head.ejs
             searchData
@@ -86,7 +88,7 @@ app.get('/search', async function(req, res) {
         const searchData = jsonData.artObjects;
 
         res.render('results', {
-            styles: './../css/styles.css',
+            styles: './css/index.css',
             title: `Resultaten voor ${artist}`,
             query: artistDefault, // We use this for the page title, see views/partials/head.ejs
             searchData

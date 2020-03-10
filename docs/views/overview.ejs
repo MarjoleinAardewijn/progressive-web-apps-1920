@@ -1,5 +1,6 @@
 <%- include('partials/head.ejs') %>
 <%- include('partials/header.ejs') %>
+<%- include('partials/waves-header') %>
 
 <main>
     <div id="objects" class="objects">
@@ -7,7 +8,7 @@
             <% overviewData.map(item => { %>
                 <a href="/schilderij/<%= item.objectNumber %>" class="link">
                     <div class="object">
-                        <img src="<%= item.webImage ? item.webImage.url : 'Geen afbeelding' %>">
+                        <img src="<%= item.webImage ? item.webImage.url : './img/placeholder.png' %>">
                         <div class="title">
                             <h3 class="title-name"><%= item.title %></h3>
                         </div>
@@ -19,3 +20,6 @@
         <% }%>
     </div>
 </main>
+
+</body>
+</html>

@@ -1,15 +1,18 @@
 <header>
     <nav>
-        <ul><li><a href="/">Home</a></li></ul>
-        <ul><li><a href="/schilderijen">Schilderijen</a></li></ul>
+        <a href="/"><img src="./../img/logo.png"></a>
+        <div class="nav">
+            <ul>
+                <li><a href="/rembrandt-van-rijn">Rembrandt van Rijn</a></li>
+            </ul>
+            <div class="search" id="search">
+                <form method="get" action="/search" id="search-form">
+                    <label>
+                        <input type="search" name="artist" placeholder="Zoek een schilder"/>
+                    </label>
+                </form>
+                <button form="search-form" type="submit"><i class="fas fa-search fa-2x"></i></button>
+            </div>
+        </div>
     </nav>
-
-    <div class="search" id="search">
-        <form method="get" action="/search">
-            <label>
-                <input type="search" name="artist"/>
-                <i class="fas fa-search fa-2x"></i>
-            </label>
-        </form>
-    </div>
 </header>

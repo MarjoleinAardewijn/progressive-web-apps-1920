@@ -1,31 +1,49 @@
 <%- include('partials/head.ejs') %>
 <%- include('partials/header.ejs') %>
-<a href="/">Back</a>
+<%- include('partials/waves-header') %>
 
 <section id="details" class="details">
-    <div class="object active">
-        <div class="title">
-            <h3 class="title-name"><%= detailsData.title %></h3>
-            <span class="title-objectnumber"><%= detailsData.objectNumber %></span>
+    <div class="object">
+        <div class="image">
+            <img src="<%= detailsData.webImage ? detailsData.webImage.url : './img/placeholder.png' %>">
         </div>
-        <div class="presenting-date">
-            <span>Year the painting was presented: <span class="date"><%= detailsData.dating.presentingDate %></span></span>
-        </div>
-        <div class="colors">
-            <span>Colors:</span>
-            <% if(detailsData.colors.length !== 0) {%>
-                <ul>
-                    <!--
-                        loop through the colors in the array and place them in a li tag
-                        used .join('') on the map to remove apostrophe
-                    -->
-                    <% detailsData.colors.map(colors => { %>
-                        <li class="hex-color" style="background-color: <%= colors.hex %>"><%= colors.hex %></li>
-                    <% }).join('') %>
-                </ul>
-            <%} else {%>
-                <span class="not-defined">not defined</span>
-            <%}%>
+        <div class="info-container">
+            <input id="tab-1" type="radio" name="tabs"/>
+            <input id="tab-2" type="radio" name="tabs"/>
+            <input id="tab-3" type="radio" name="tabs"/>
+            <div class="tabs">
+                <label for="tab-1">Object Nr.</label>
+                <label for="tab-2">Presentatie datum</label>
+                <label for="tab-3">Kleuren</label>
+            </div>
+            <div class="content">
+                <div class="tab">
+                    <div>
+                        <span><%= detailsData.objectNumber %></span>
+                    </div>
+                </div>
+                <div class="tab">
+                    <div>
+                        <span><%= detailsData.dating.presentingDate %></span>
+                    </div>
+                </div>
+                <div class="tab">
+                    <div class="colors">
+                        <% if(detailsData.colors.length !== 0) {%>
+                            <ul>
+                                <% detailsData.colors.map(colors => { %>
+                                    <li class="hex-color" style="background-color: <%= colors.hex %>"><%= colors.hex %></li>
+                                <% }).join('') %>
+                            </ul>
+                        <%} else {%>
+                            <span class="not-defined">niet bekend</span>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+</body>
+</html>

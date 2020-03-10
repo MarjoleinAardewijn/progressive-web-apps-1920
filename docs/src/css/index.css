@@ -1,0 +1,13 @@
+/*@import "variables.css";*/
+/*@import "reset.css";*/
+/*@import "typography.css";*/
+
+html {
+  background-color: #F5F5F5;
+}
+
+main,
+section {
+  margin: 10vh auto;
+  width: 80%;
+}

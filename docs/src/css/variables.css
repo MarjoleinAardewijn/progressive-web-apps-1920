@@ -1,0 +1,11 @@
+:root {
+    --light: #F5F5F5;
+    --dark: #333;
+    --orange: #f59802;
+    --box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    --font-primary: Roboto, sans-serif;
+    --font-secondary: Montserrat, sans-serif;
+
+    --breakpoint-tablet: 720px;
+    --breakpoint-desktop: 1100px;
+}

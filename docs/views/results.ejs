@@ -1,15 +1,14 @@
 <%- include('partials/head') %>
 <%- include('partials/header') %>
+<%- include('partials/waves-header-results') %>
 
 <main>
-    <h2>Results for <%= query %></h2>
-
     <div id="objects" class="objects">
         <% if(searchData.length !== 0) {%>
             <% searchData.map(item => { %>
                 <a href="/schilderij/<%= item.objectNumber %>" class="link">
                     <div class="object">
-                        <img src="<%= item.webImage ? item.webImage.url : 'Geen afbeelding' %>">
+                        <img src="<%= item.webImage ? item.webImage.url : './img/placeholder.png' %>">
                         <div class="title">
                             <h3 class="title-name"><%= item.title %></h3>
                         </div>

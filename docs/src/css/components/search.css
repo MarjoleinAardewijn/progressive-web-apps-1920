@@ -1,0 +1,19 @@
+.search {
+    display: flex;
+    margin: 0 1rem;
+    align-items: center;
+}
+
+.search label input {
+    color: var(--dark);
+    background: none;
+    border-bottom: 2px solid var(--dark);
+    padding: 0.5rem;
+    width: 150px;
+}
+
+.search button {
+    border: none;
+    background-color: transparent;
+    margin-left: 0.5rem;
+}
