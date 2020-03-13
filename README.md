@@ -39,7 +39,7 @@ Go via the terminal to the folder you want the project to be placed:
 Clone the repository and go to the project folder:
 
 ```
-    git clone https://github.com/MarjoleinAardewijn/web-app-from-scratch-1920.git && cd web-app-from-scratch-1920
+    git clone https://github.com/MarjoleinAardewijn/progressive-web-apps-1920.git && cd progressive-web-apps-1920
 ```
 
 After cloning the project go to the docs folder:
