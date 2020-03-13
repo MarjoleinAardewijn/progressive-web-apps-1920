@@ -1,6 +1,6 @@
 # Rijksmuseum paintings
 
-![App Home](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/images/rijksmuseum-schilders-home.png "Rijksmuseum Schilders App")
+![App Home](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/images/rijkmuseum-schilders-home.png "Rijksmuseum Schilders App")
 
 ![App Overview](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/images/rijksmuseum-schilders-overview.png "Rijksmuseum Schilders App - Overview")
 
