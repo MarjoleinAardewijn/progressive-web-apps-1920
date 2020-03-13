@@ -331,6 +331,8 @@ The sources I used the most during the development of the app are:
 
 ## Credits
 
+- [Example from Declan Rek](https://github.com/decrek/progressive-web-apps-1920/tree/master/examples/movies-example)
+
 ## Licence
 
 [MIT License](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/LICENSE.txt).
