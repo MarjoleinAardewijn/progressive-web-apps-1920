@@ -1,4 +1,4 @@
-// const globalConfig = require('./config');
+const globalConfig = require('./config');
 
 // Require (third-party) modules
 const express = require('express'),
@@ -8,8 +8,8 @@ const express = require('express'),
     app = express(),
     // Config object
     config = {
-        port: 3000,
-        apiKey: 'n0Iu86hl',
+        port: globalConfig.port,
+        apiKey: globalConfig.masterKey,
         apiUrlEndpoint: 'https://www.rijksmuseum.nl/api/nl/collection',
         artistDefaultUrl: 'Rembrandt+van+Rijn',
         artistDefault: 'Rembrandt van Rijn'
