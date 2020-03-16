@@ -31,6 +31,7 @@ For more information about my WAFS project see the [README](https://github.com/M
 - [x] Implement Manifest.
 - [ ] Implement Service Worker.
 - [ ] Add icons to manifest.json.
+- [ ] Deploy site (Heroku).
 
 ## Live Demo
 
