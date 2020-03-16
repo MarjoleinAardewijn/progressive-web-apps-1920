@@ -2,8 +2,8 @@
 
 // Require (third-party) modules
 const express = require('express'),
-    api = require('./src/js/modules/api.js'),
-    render = require('./src/js/modules/render.js'),
+    api = require('./scripts/js/modules/api.js'),
+    render = require('./scripts/js/modules/render.js'),
     // Create new express app in 'app'
     app = express(),
     // Config object
