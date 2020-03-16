@@ -67,18 +67,9 @@ Install npm:
 Install all the dependencies:
 
 ```
-    npm i express --save
-    npm i nodemon --save-dev
-    npm i ejs --save
-    npm i node-fetch --save
-    npm i gulp --save-dev
-    npm i gulp-concat --save-dev
-    npm i gulp-clean-css --save-dev
-    npm i gulp-autoprefixer --save-dev
-    npm i rimraf --save-dev
-    npm i chokidar-cli --save-dev
+    npm install
 ```
-<!--npm install dotenv --save-dev-->
+
 Start the server:
 
 ```
