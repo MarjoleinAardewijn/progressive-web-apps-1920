@@ -1,6 +1,4 @@
 /.idea/
-/docs/node_modules/
-/examples/node-simple/
-/examples/node-simple/package.json
-/docs/static/*
-/docs/.env
+/node_modules/
+/static/*
+/.env
