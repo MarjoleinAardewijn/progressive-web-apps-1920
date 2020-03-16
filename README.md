@@ -24,7 +24,11 @@ For more information about my WAFS project see the [README](https://github.com/M
 
 ## To do
 
-- [x] use modules from WAFS project and change them if necessary.
+- [x] Install Node.js packages.
+- [x] Server-side rendering.
+- [x] Use modules from WAFS project and change them if necessary.
+- [ ] Convert app into PWA.
+- [ ] Implement Service Worker.
 
 ## Live Demo
 
@@ -68,7 +72,7 @@ Install all the dependencies:
     npm i rimraf --save-dev
     npm i chokidar-cli --save-dev
 ```
-
+<!--npm install dotenv --save-dev-->
 Start the server:
 
 ```
