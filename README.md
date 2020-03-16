@@ -35,6 +35,9 @@ For more information about my WAFS project see the [README](https://github.com/M
 
 ## Live Demo
 
+The live demo of the app can be found here:
+[Live Demo Link](https://ancient-hamlet-10241.herokuapp.com/)
+
 ## Usage
 
 Go via the terminal to the folder you want the project to be placed:
