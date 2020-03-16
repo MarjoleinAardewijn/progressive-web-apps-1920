@@ -1,0 +1,18 @@
+<main>
+    <div id="objects" class="objects">
+        <% if(data.length !== 0) {%>
+            <% data.map(item => { %>
+                <a href="/schilderij/<%= item.objectNumber %>" class="link">
+                    <div class="object">
+                        <img src="<%= item.webImage ? item.webImage.url : './img/placeholder.png' %>">
+                        <div class="title">
+                            <h3 class="title-name"><%= item.title %></h3>
+                        </div>
+                    </div>
+                </a>
+            <% }); %>
+        <% } else {%>
+            <span>Oeps! Het lijkt erop alsof iets mis is gegaan.</span>
+        <% }%>
+    </div>
+</main>

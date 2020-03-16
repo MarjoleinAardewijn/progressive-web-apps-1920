@@ -1,25 +1,7 @@
-<%- include('partials/head.ejs') %>
-<%- include('partials/header.ejs') %>
-<%- include('partials/waves-header') %>
+<%- include('partials/head') %>
+<%- include('partials/header/header') %>
+<%- include('partials/header/waves-header') %>
 
-<main>
-    <div id="objects" class="objects">
-        <% if(overviewData.length !== 0) {%>
-            <% overviewData.map(item => { %>
-                <a href="/schilderij/<%= item.objectNumber %>" class="link">
-                    <div class="object">
-                        <img src="<%= item.webImage ? item.webImage.url : './img/placeholder.png' %>">
-                        <div class="title">
-                            <h3 class="title-name"><%= item.title %></h3>
-                        </div>
-                    </div>
-                </a>
-            <% }); %>
-        <% } else {%>
-            <span>Oeps! Het lijkt erop alsof iets mis is gegaan.</span>
-        <% }%>
-    </div>
-</main>
+<%- include('partials/paintings') %>
 
-</body>
-</html>
+<%- include('partials/footer') %>

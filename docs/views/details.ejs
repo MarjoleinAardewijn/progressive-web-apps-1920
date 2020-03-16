@@ -1,11 +1,11 @@
-<%- include('partials/head.ejs') %>
-<%- include('partials/header.ejs') %>
-<%- include('partials/waves-header') %>
+<%- include('partials/head') %>
+<%- include('partials/header/header') %>
+<%- include('partials/header/waves-header') %>
 
 <section id="details" class="details">
     <div class="object">
         <div class="image">
-            <img src="<%= detailsData.webImage ? detailsData.webImage.url : './img/placeholder.png' %>">
+            <img src="<%= data.webImage ? data.webImage.url : './img/placeholder.png' %>">
         </div>
         <div class="info-container">
             <input id="tab-1" type="radio" name="tabs"/>
@@ -19,19 +19,19 @@
             <div class="content">
                 <div class="tab">
                     <div>
-                        <span><%= detailsData.objectNumber %></span>
+                        <span><%= data.objectNumber %></span>
                     </div>
                 </div>
                 <div class="tab">
                     <div>
-                        <span><%= detailsData.dating.presentingDate %></span>
+                        <span><%= data.dating.presentingDate %></span>
                     </div>
                 </div>
                 <div class="tab">
                     <div class="colors">
-                        <% if(detailsData.colors.length !== 0) {%>
+                        <% if(data.colors.length !== 0) {%>
                             <ul>
-                                <% detailsData.colors.map(colors => { %>
+                                <% data.colors.map(colors => { %>
                                     <li class="hex-color" style="background-color: <%= colors.hex %>"><%= colors.hex %></li>
                                 <% }).join('') %>
                             </ul>
@@ -45,5 +45,4 @@
     </div>
 </section>
 
-</body>
-</html>
+<%- include('partials/footer') %>
