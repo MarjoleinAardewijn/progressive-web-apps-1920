@@ -4,8 +4,9 @@
   "description": "Kijk welke schilders schilderijen hebben in het rijksmuseum",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm run build:css && npm run build:img && npm run build:remaining",
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "predev": "npm run build:css && npm run build:img && npm run build:remaining",
+    "dev": "nodemon server.js",
     "prebuild:css": "rimraf ./static/css",
     "build:css": "node scripts/build-css.js",
     "build:img": "node scripts/build-img.js",
