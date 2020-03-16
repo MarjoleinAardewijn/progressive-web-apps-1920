@@ -1,10 +1,10 @@
 # Rijksmuseum paintings
 
-![App Home](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/images/rijkmuseum-schilders-home.png "Rijksmuseum Schilders App")
+![App Home](https://user-images.githubusercontent.com/23479038/76788583-7d7b4f80-67bb-11ea-9449-1417012f6c13.png "Rijksmuseum Schilders App")
 
-![App Overview](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/images/rijksmuseum-schilders-overview.png "Rijksmuseum Schilders App - Overview")
+![App Overview](https://user-images.githubusercontent.com/23479038/76788695-b3b8cf00-67bb-11ea-8a4b-50ac10d65bbe.png "Rijksmuseum Schilders App - Overview")
 
-![App Details](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/images/rijksmuseum-schilders-details.png "Rijksmuseum Schilders App - Details")
+![App Details](https://user-images.githubusercontent.com/23479038/76788660-a1d72c00-67bb-11ea-973f-ae72ce9c435f.png "Rijksmuseum Schilders App - Details")
 
 ## Description
 
