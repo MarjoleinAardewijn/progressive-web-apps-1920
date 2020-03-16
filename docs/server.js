@@ -1,19 +1,26 @@
-// Require third-party modules
-const express = require('express');
-// const request = require('request');
-const fetch = require('node-fetch');
+// const globalConfig = require('./config');
 
-// Create new express app in 'app'
-const app = express();
-
-// Config object
-const config = {
-    port: 3000
-};
+// Require (third-party) modules
+const express = require('express'),
+    api = require('./src/js/modules/api.js'),
+    render = require('./src/js/modules/render.js'),
+    // Create new express app in 'app'
+    app = express(),
+    // Config object
+    config = {
+        port: 3000,
+        apiKey: 'n0Iu86hl',
+        apiUrlEndpoint: 'https://www.rijksmuseum.nl/api/nl/collection',
+        artistDefaultUrl: 'Rembrandt+van+Rijn',
+        artistDefault: 'Rembrandt van Rijn'
+    },
+    // Global variables
+    url = `${config.apiUrlEndpoint}?key=${config.apiKey}`,
+    urlOverview = `${url}&involvedMaker=${config.artistDefaultUrl}`;
 
 // Link the templating engine to the express app
 app.set('view engine', 'ejs');
-// Tell the views engine/ejs where the template files are stored (Settingname, value)
+// Tell the views engine/ejs where the template files are stored (SettingName, value)
 app.set('views', 'views');
 
 // Tell express to use a 'static' folder
@@ -21,12 +28,7 @@ app.set('views', 'views');
 // Sending something (responding) ends the response cycle
 app.use(express.static('static'));
 
-const endpoint = 'https://www.rijksmuseum.nl/api/nl/collection',
-    apiKey = 'n0Iu86hl',
-    artistDefaultUrl = 'Rembrandt+van+Rijn',
-    artistDefault = 'Rembrandt van Rijn',
-    urlOverview = `${endpoint}?key=${apiKey}&involvedMaker=${artistDefaultUrl}`;
-
+// Create a home route
 app.get('/', function(req, res) {
    res.render('home', {
        styles: './css/index.css',
@@ -34,65 +36,57 @@ app.get('/', function(req, res) {
    })
 });
 
-// Create a home route
+// Create an overview route
 app.get('/rembrandt-van-rijn', async function(req, res) {
-    const response = await fetch(urlOverview);
-    const jsonData = await response.json();
-    const overviewData = jsonData.artObjects;
+    const title = 'Schilderijen van Rembrandt van Rijn';
 
-    res.render('overview', {
-        styles: './css/index.css',
-        title: 'Schilderijen van Rembrandt van Rijn',
-        overviewData
-    });
+    try {
+        const overviewData = await api.overview(urlOverview);
+        render.overview(res, title, overviewData);
 
+    } catch (err) {
+        console.log('Error: ', err);
+    }
 });
 
+// Create a details route
 app.get('/schilderij/:id', async function(req, res) {
-    const id = req.params.id;
-    const urlDetails = `${endpoint}/${id}?key=${apiKey}`;
+    const id = req.params.id,
+        urlDetails = `${config.apiUrlEndpoint}/${id}?key=${config.apiKey}`;
 
-    const response = await fetch(urlDetails);
-    const jsonData = await response.json();
-    const detailsData = jsonData.artObject;
+    try {
+        const detailsData = await api.details(urlDetails);
+        render.details(res, detailsData.title, detailsData);
 
-    // console.log(detailsData);
-
-    res.render('details', {
-        styles: './../css/index.css',
-        title: detailsData.title, // We use this for the page title, see views/partials/head.ejs
-        detailsData
-    });
+    } catch (err) {
+        console.log('Error: ', err);
+    }
 });
 
+// Create a search route
 app.get('/search', async function(req, res) {
-    const artist = req.query.artist;
+    const artist = req.query.artist,
+        title = `Resultaten voor ${artist}`;
 
     if(artist.length !== 0) {
-        const urlSearch =  `${endpoint}?key=${apiKey}&involvedMaker=${artist}`;
+        const urlSearch =  `${url}&involvedMaker=${artist}`;
 
-        const response = await fetch(urlSearch);
-        const jsonData = await response.json();
-        const searchData = jsonData.artObjects;
+        try {
+            const searchData = await api.overview(urlSearch);
+            render.search(res, title, artist, searchData);
 
-        res.render('results', {
-            styles: './css/index.css',
-            title: `Resultaten voor ${artist}`,
-            query: artist, // We use this for the page title, see views/partials/head.ejs
-            searchData
-        });
+        } catch (err) {
+            console.log('Error: ', err);
+        }
 
     } else {
-        const response = await fetch(urlOverview);
-        const jsonData = await response.json();
-        const searchData = jsonData.artObjects;
+        try {
+            const searchData = await api.overview(urlOverview);
+            render.search(res, title, config.artistDefault, searchData);
 
-        res.render('results', {
-            styles: './css/index.css',
-            title: `Resultaten voor ${artist}`,
-            query: artistDefault, // We use this for the page title, see views/partials/head.ejs
-            searchData
-        });
+        } catch (err) {
+            console.log('Error: ', err);
+        }
     }
 });
 
