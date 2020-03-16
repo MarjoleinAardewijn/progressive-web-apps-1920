@@ -15,7 +15,7 @@ const express = require('express'),
         artistDefault: 'Rembrandt van Rijn'
     },
     // Global variables
-    url = `${config.apiUrlEndpoint}?key=${config.apiKey}`,
+    url = `${config.apiUrlEndpoint}?key=${config.apiKey}&ps=9`,
     urlOverview = `${url}&involvedMaker=${config.artistDefaultUrl}`;
 
 // Link the templating engine to the express app

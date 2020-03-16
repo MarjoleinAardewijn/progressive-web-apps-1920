@@ -4,7 +4,9 @@
             <% data.map(item => { %>
                 <a href="/schilderij/<%= item.objectNumber %>" class="link">
                     <div class="object">
-                        <img src="<%= item.webImage ? item.webImage.url : './img/placeholder.png' %>">
+                        <div class="img-wrapper">
+                            <img src="<%= item.webImage ? item.webImage.url : './img/placeholder.png' %>">
+                        </div>
                         <div class="title">
                             <h3 class="title-name"><%= item.title %></h3>
                         </div>
