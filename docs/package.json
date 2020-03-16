@@ -4,12 +4,14 @@
   "description": "Kijk welke schilders schilderijen hebben in het rijksmuseum",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm run build:css && npm run build:img",
+    "prestart": "npm run build:css && npm run build:img && npm run build:remaining",
     "start": "nodemon server.js",
     "prebuild:css": "rimraf ./static/css",
     "build:css": "node scripts/build-css.js",
     "build:img": "node scripts/build-img.js",
+    "build:remaining": "node scripts/build-remaining.js",
     "watch:css": "chokidar 'src/css/*.css' 'src/css/components/*.css' --command 'npm run build:css'",
+    "watch:remaining": "chokidar 'src/manifest.json' --command 'npm run build:remaining'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
