@@ -24,7 +24,7 @@ For more information about my WAFS project see the [README](https://github.com/M
 
 ## To do
 
-- [ ] use modules from WAFS project and change them if necessary.
+- [x] use modules from WAFS project and change them if necessary.
 
 ## Live Demo
 
