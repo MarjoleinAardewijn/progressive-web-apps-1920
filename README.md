@@ -27,11 +27,12 @@ For more information about my WAFS project see the [README](https://github.com/M
 - [x] Install Node.js packages.
 - [x] Server-side rendering.
 - [x] Use modules from WAFS project and change them if necessary.
-- [ ] Convert app into PWA.
+- [x] Convert app into PWA.
 - [x] Implement Manifest.
-- [ ] Implement Service Worker.
-- [ ] Add icons to manifest.json.
-- [ ] Deploy site (Heroku).
+- [x] Implement Service Worker.
+- [x] Add icons to manifest.json.
+- [x] Deploy site (Heroku).
+- [ ] Cache images.
 
 ## Live Demo
 
