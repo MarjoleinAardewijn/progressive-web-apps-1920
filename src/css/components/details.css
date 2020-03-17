@@ -22,9 +22,13 @@
     box-shadow: var(--box-shadow);
 }
 
+.details .colors {
+    overflow-x: scroll;
+}
+
 .details .colors ul {
-    display: flex;
-    flex-flow: row wrap;
+    display: inline-flex;
+    flex-flow: row nowrap;
 }
 
 .details .hex-color {

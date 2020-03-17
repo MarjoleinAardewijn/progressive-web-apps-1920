@@ -3,25 +3,23 @@
     width: 75%;
     border-radius: 3px;
     box-shadow: var(--box-shadow);
-    margin: 25px auto;
+    margin: 2.5rem auto;
     overflow: hidden;
 }
-.info-container .tab {
-    display: none;
-    background: #F6F6F6;
+.info-container .tab-link {
     padding: 2rem;
 }
 
-.tabs {
+.tabs-nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     box-shadow: 0 20px 50px -25px rgba(0, 0, 0, 0.3);
     overflow-X: auto;
     -webkit-overflow-scrolling: touch;
     position: relative;
     white-space: nowrap;
 }
-.tabs label {
+.tabs-nav .tab-link {
     display: inline-block;
     padding: 18px;
     position: relative;
@@ -32,7 +30,7 @@
     letter-spacing: 1.5px;
     cursor: pointer;
 }
-.tabs label:after {
+.tabs-nav .tab-link:after {
     content: '';
     background: #D22C3F;
     width: 0;
@@ -44,24 +42,32 @@
     transition: .1s;
 }
 
-input[name="tabs"] {
+.info-container .tab-content {
     display: none;
 }
-input[name="tabs"]#tab-1:checked ~ .content .tab:nth-of-type(1),
-input[name="tabs"]#tab-2:checked ~ .content .tab:nth-of-type(2),
-input[name="tabs"]#tab-3:checked ~ .content .tab:nth-of-type(3) {
+
+.info-container .tabs-content .tab-content.tab1:target,
+.info-container .tabs-content .tab-content.tab2:target,
+.info-container .tabs-content .tab-content.tab3:target {
     display: inline-flex;
     justify-content: center;
     width: 100%;
+    padding: 1rem;
 }
-input[name="tabs"]#tab-1:checked ~ .tabs label:nth-child(1),
-input[name="tabs"]#tab-2:checked ~ .tabs label:nth-child(2),
-input[name="tabs"]#tab-3:checked ~ .tabs label:nth-child(3) {
-    color: #242b36;
-}
-input[name="tabs"]#tab-1:checked ~ .tabs label:nth-child(1):after,
-input[name="tabs"]#tab-2:checked ~ .tabs label:nth-child(2):after,
-input[name="tabs"]#tab-3:checked ~ .tabs label:nth-child(3):after {
+
+.tabs-nav .tab-link:hover:after,
+.tabs-nav .tab-link:focus:after {
     width: calc(100% - 40px);
     transition: .3s;
+}
+
+@media(max-width: 720px) {
+    .info-container {
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    .tabs-nav {
+        flex-flow: row wrap;
+    }
 }

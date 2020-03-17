@@ -66,12 +66,16 @@
     }
 }
 /*Shrinking for mobile*/
-@media (max-width: var(--breakpoint-tablet)) {
+@media (max-width: 720px) {
     .waves {
         height: 40px;
         min-height: 40px;
     }
     .content {
         height: 30vh;
+    }
+
+    .waves-header h1 {
+        margin-top: 2.5rem;
     }
 }
