@@ -36,7 +36,8 @@
     filter: brightness(60%);
 }
 
-.img-wrapper:hover img {
+.link:hover img,
+.link:focus img {
     filter: brightness(100%);
     transform: scale(1.3);
 }
@@ -45,7 +46,8 @@
     display: none;
 }
 
-.link:hover .title {
+.link:hover .title,
+.link:focus .title {
     position: absolute;
     bottom: 0;
     display: flex;
