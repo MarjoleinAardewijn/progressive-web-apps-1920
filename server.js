@@ -36,6 +36,13 @@ app.get('/', function(req, res) {
    })
 });
 
+app.get('/offline', (req, res) => {
+    res.render('offline', {
+        styles: './css/index.css',
+        title: 'Oeps! Je bent offline.'
+    })
+});
+
 // Create an overview route
 app.get('/rembrandt-van-rijn', async function(req, res) {
     const title = 'Schilderijen van Rembrandt van Rijn';
