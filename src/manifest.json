@@ -1,7 +1,7 @@
 {
-  "name": "Rijksmuseum Schilders: which paintings are in the collection?",
+  "name": "Rijksmuseum Schilders",
   "short_name": "Rijksmuseum Schilders",
-  "description": "App to see which paintings from a specific artist are in the collection of the Rijksmuseum",
+  "description": "App to see which paintings from which artists are in the collection of the Rijksmuseum",
   "theme_color": "#333333",
   "background_color": "#f5f5f5",
   "display": "standalone",
