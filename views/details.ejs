@@ -8,26 +8,20 @@
             <img src="<%= data.webImage ? data.webImage.url : './placeholder.png' %>">
         </div>
         <div class="info-container">
-            <input id="tab-1" type="radio" name="tabs"/>
-            <input id="tab-2" type="radio" name="tabs"/>
-            <input id="tab-3" type="radio" name="tabs"/>
-            <div class="tabs">
-                <label for="tab-1">Object Nr.</label>
-                <label for="tab-2">Presentatie datum</label>
-                <label for="tab-3">Kleuren</label>
+            <div class="tabs-nav">
+                <a href="#tab1" class="tab-link tab1">Object Nr.</a>
+                <a href="#tab2" class="tab-link tab2">Presentatie Datum</a>
+                <a href="#tab3" class="tab-link tab3">Kleuren</a>
             </div>
-            <div class="content">
-                <div class="tab">
-                    <div>
-                        <span><%= data.objectNumber %></span>
-                    </div>
+
+            <div class="tabs-content">
+                <div id='tab1' class='tab-content tab1'>
+                    <p><%= data.objectNumber %></p>
                 </div>
-                <div class="tab">
-                    <div>
-                        <span><%= data.dating.presentingDate %></span>
-                    </div>
+                <div id='tab2' class='tab-content tab2'>
+                    <p><%= data.dating.presentingDate %></p>
                 </div>
-                <div class="tab">
+                <div id='tab3' class='tab-content tab3'>
                     <div class="colors">
                         <% if(data.colors.length !== 0) {%>
                             <ul>

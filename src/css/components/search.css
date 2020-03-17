@@ -13,7 +13,35 @@
 }
 
 .search button {
-    border: none;
-    background-color: transparent;
-    margin-left: 0.5rem;
+    display: none;
+}
+
+/*Mobile*/
+@media (max-width: 720px) {
+    .search {
+        position: absolute;
+        justify-content: center;
+        margin: 0;
+        padding: .5rem 0;
+        top: 3rem;
+        left: 0;
+        width: 100vw;
+        background-color: var(--light);
+        z-index: 999;
+    }
+
+    .search form {
+        width: 87%;
+    }
+
+    .search label input {
+        width: 100%;
+    }
+
+    .search button {
+        display: block;
+        border: none;
+        background-color: transparent;
+        margin-left: 0.5rem;
+    }
 }
