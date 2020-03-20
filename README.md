@@ -330,6 +330,8 @@ The sources I used the most during the development of the app are:
 - [Gulp Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
 - [Rimraf](https://www.npmjs.com/package/rimraf)
 - [Chokidar](https://www.npmjs.com/package/chokidar-cli)
+- [npm-run-all](https://www.npmjs.com/package/npm-run-all)
+- [Heroku](https://devcenter.heroku.com/articles/heroku-cli)
 
 ## Credits
 
