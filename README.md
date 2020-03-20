@@ -1,4 +1,6 @@
-# Rijksmuseum paintings
+# Rijksmuseum paintings PWA
+
+I've worked with servers before, but never this way and always with PHP, not JavaScript. I didn't even know it was possible with JavaScript! So I learned a lot from this. I've heard of PWAs but had never worked with them, let alone made one myself! That is why I am very proud that I managed to make one myself. I really liked making a PWA and will certainly try to do this more often in the future.
 
 ![App Home](https://user-images.githubusercontent.com/23479038/76788583-7d7b4f80-67bb-11ea-9449-1417012f6c13.png "Rijksmuseum Schilders App")
 
