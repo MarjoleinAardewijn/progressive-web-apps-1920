@@ -30,17 +30,11 @@ app.use(express.static('static'));
 
 // Create a home route
 app.get('/', function(req, res) {
-   res.render('home', {
-       styles: './css/index.css',
-       title: 'Rijksmusuem Schilders'
-   })
+    render.basicPage(res, 'home', 'Rijksmuseum Schilders');
 });
 
 app.get('/offline', (req, res) => {
-    res.render('offline', {
-        styles: './css/index.css',
-        title: 'Oeps! Je bent offline.'
-    })
+    render.basicPage(res, 'offline', 'Oeps! Je bent offline.');
 });
 
 // Create an overview route

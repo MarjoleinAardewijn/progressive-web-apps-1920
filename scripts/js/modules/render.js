@@ -1,3 +1,9 @@
+function basicPage(res, view, title) {
+    res.render(view, {
+        title: title
+    })
+}
+
 function overview(res, title, data) {
     return res.render('overview', {
         title: title,
@@ -20,4 +26,4 @@ function search(res, title, query, data) {
     });
 }
 
-module.exports = { overview, details, search };
+module.exports = { basicPage, overview, details, search };
