@@ -35,6 +35,7 @@ For more information about my WAFS project see the [README](https://github.com/M
 - [x] Add icons to manifest.json.
 - [x] Deploy site (Heroku).
 - [ ] Cache images.
+- [ ] Optimize the Critical Rendering Path.
 
 ## Live Demo
 
