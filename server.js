@@ -1,4 +1,4 @@
-const globalConfig = require('./config');
+const config = require('./config');
 
 // Require (third-party) modules
 const express = require('express'),
@@ -6,14 +6,6 @@ const express = require('express'),
     render = require('./scripts/js/modules/render.js'),
     // Create new express app in 'app'
     app = express(),
-    // Config object
-    config = {
-        port: globalConfig.port,
-        apiKey: globalConfig.masterKey,
-        apiUrlEndpoint: 'https://www.rijksmuseum.nl/api/nl/collection',
-        artistDefaultUrl: 'Rembrandt+van+Rijn',
-        artistDefault: 'Rembrandt van Rijn'
-    },
     // Global variables
     url = `${config.apiUrlEndpoint}?key=${config.apiKey}&ps=9`,
     urlOverview = `${url}&involvedMaker=${config.artistDefaultUrl}`;
