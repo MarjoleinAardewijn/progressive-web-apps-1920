@@ -4,7 +4,7 @@ I've worked with servers before, but never this way and always with PHP, not Jav
 
 ![App Home](https://user-images.githubusercontent.com/23479038/76788583-7d7b4f80-67bb-11ea-9449-1417012f6c13.png "Rijksmuseum Schilders App")
 
-![App Overview](https://user-images.githubusercontent.com/23479038/76788695-b3b8cf00-67bb-11ea-8a4b-50ac10d65bbe.png "Rijksmuseum Schilders App - Overview")
+![App Overview](https://user-images.githubusercontent.com/23479038/77340780-15ce8280-6d2e-11ea-945f-6c95f8720400.png "Rijksmuseum Schilders App - Overview")
 
 ![App Details](https://user-images.githubusercontent.com/23479038/76788660-a1d72c00-67bb-11ea-973f-ae72ce9c435f.png "Rijksmuseum Schilders App - Details")
 
