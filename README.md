@@ -19,6 +19,7 @@ For more information about my WAFS project see the [README](https://github.com/M
 * [Live Demo](#Live-demo)
 * [Usage](#Usage)
 * [API](#Api)
+* [Performance Enhancements](#Performance-Enhancements)
 * [Feature Wishlist](#Feature-Wishlist)
 * [Sources](#Sources)
 * [Credits](#Credits)
@@ -318,6 +319,113 @@ This will be returning the following data:
 ```
 </details>
 
+## Performance Enhancements
+
+### 1. Server Side Rendering
+
+Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering takes place on the server and not the client and is the content shown immediately when the HTML is parsed from the server instead of waiting for all the JavaScript to download and execute.
+
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77423366-5af6c100-6dcf-11ea-8f64-e501b6d7b2ce.png "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+    
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77423265-2aaf2280-6dcf-11ea-91c5-cef3db378a9e.png "Network")
+</details>
+
+### 2. Fix Accessablilty and SEO issues
+
+During the first audit I saw that my app didn't score well on Accessablilty and SEO. So, I fixed all those issues first. 
+
+The biggest issues for accessablilty were that all the image tags (`<img>`) didn't have an `alt` text, the `input` field of the search form didn't have text in the label and the `button` didn't have text either. This weren't really performance issues, but it was important for the accessablility of the app. 
+
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77424033-c55c3100-6dd0-11ea-8185-4563ad927001.png "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+    
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77423887-7b734b00-6dd0-11ea-9ee4-6071a81beaaf.png "Network")
+</details>
+
+### 3. Minifying
+
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77424426-66e38280-6dd1-11ea-99d6-07c5abb6224d.png "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+    
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77428658-bbd6c700-6dd8-11ea-8b72-7771250b6122.png "Network")
+</details>
+
+### 4. Gzip
+
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77428128-e83e1380-6dd7-11ea-85e6-371fef718b15.png "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+    
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77428256-19b6df00-6dd8-11ea-93c1-b19102955ecc.png "Network")
+</details>
+
+### 5. Caching
+
+#### Service Worker
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77429261-aada8580-6dd9-11ea-97e5-4d9da7d8e686.png "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+    
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77429108-7797f680-6dd9-11ea-8366-630d429a88ea.png "Network")
+</details>
+
+#### Browser
+
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit]( "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+    
+![DevTools Network Tab]( "Network")
+</details>
+
+### Lazy Load Images
+
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit]( "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+    
+![DevTools Network Tab]( "Network")
+</details>
+
 ## Feature Wishlist
 
 ## Sources
@@ -335,6 +443,8 @@ The sources I used the most during the development of the app are:
 - [Chokidar](https://www.npmjs.com/package/chokidar-cli)
 - [npm-run-all](https://www.npmjs.com/package/npm-run-all)
 - [Heroku](https://devcenter.heroku.com/articles/heroku-cli)
+- [gzip](https://expressjs.com/en/advanced/best-practice-performance.html)
+- [Compression](https://www.npmjs.com/package/compression)
 
 ## Credits
 
