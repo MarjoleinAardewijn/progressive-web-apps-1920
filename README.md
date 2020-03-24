@@ -412,8 +412,6 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77458679-e20f5d80-6dfe-11ea-8b41-349d689f3b49.png "Network")
 </details>
 
-### 
-
 ### Lazy Load Images
 
 <details>
@@ -426,6 +424,20 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
     <summary>Network</summary>
     
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77465855-9c0bc700-6e09-11ea-8362-c4141466d357.png "Network")
+</details>
+
+### Eliminate render-blocking resources
+
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77469274-1be86000-6e0f-11ea-8d50-dc5f1bee41eb.png "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+    
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77469287-1e4aba00-6e0f-11ea-9f27-5bbb84761121.png "Network")
 </details>
 
 ## Feature Wishlist
