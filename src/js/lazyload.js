@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     var image = entry.target;
                     image.src = image.dataset.src;
                     image.classList.remove("lazy");
+                    image.classList.add("loaded");
                     imageObserver.unobserve(image);
                 }
             });
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     if(img.offsetTop < (window.innerHeight + scrollTop)) {
                         img.src = img.dataset.src;
                         img.classList.remove('lazy');
+                        img.classList.add('loaded');
                     }
                 });
                 if(lazyloadImages.length === 0) {
