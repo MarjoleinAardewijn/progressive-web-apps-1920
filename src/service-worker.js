@@ -53,7 +53,7 @@ self.addEventListener('fetch', event => {
  * @param cacheName
  * @returns {Promise<Response | never>}
  */
-function fetchAndCache(request, cacheName) {
+const fetchAndCache = (request, cacheName) => {
     return fetch(request)
         .then(response => {
             if (!response.ok) {
@@ -64,7 +64,7 @@ function fetchAndCache(request, cacheName) {
             caches.open(cacheName).then((cache) => cache.put(request, clone));
             return response;
         })
-}
+},
 
 /**
  * Checks if a request is a GET and HTML request
@@ -72,9 +72,9 @@ function fetchAndCache(request, cacheName) {
  * @param {Object} request        The request object
  * @returns {Boolean}            Boolean value indicating whether the request is a GET and HTML request
  */
-function isHtmlGetRequest(request) {
+isHtmlGetRequest = (request) => {
     return request.method === 'GET' && (request.headers.get('accept') !== null && request.headers.get('accept').indexOf('text/html') > -1);
-}
+},
 
 /**
  * Checks if a request is a core GET request
@@ -82,9 +82,9 @@ function isHtmlGetRequest(request) {
  * @param {Object} request        The request object
  * @returns {Boolean}            Boolean value indicating whether the request is in the core mapping
  */
-function isCoreGetRequest(request) {
+isCoreGetRequest = (request) => {
     return request.method === 'GET' && CORE_ASSETS.includes(getPathName(request.url));
-}
+},
 
 /**
  * Get a pathname from a full URL by stripping off domain
@@ -92,7 +92,7 @@ function isCoreGetRequest(request) {
  * @param {Object} requestUrl        The request object, e.g. https://www.mydomain.com/index.css
  * @returns {String}                Relative url to the domain, e.g. index.css
  */
-function getPathName(requestUrl) {
+getPathName = (requestUrl) => {
     const url = new URL(requestUrl);
     return url.pathname;
-}
+};
