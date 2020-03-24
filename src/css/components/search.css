@@ -8,7 +8,7 @@
     color: var(--dark);
     background: none;
     border-bottom: 2px solid var(--dark);
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 0.2rem 0.5rem;
     width: 150px;
 }
 
@@ -28,20 +28,39 @@
         width: 100vw;
         background-color: var(--light);
         z-index: 999;
+        border-top: 1px solid #DEDEDE;
     }
 
     .search form {
-        width: 87%;
+        width: 100%;
+        margin: 0 0.5rem;
+    }
+
+    .search label {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
     }
 
     .search label input {
-        width: 100%;
+        width: 56%;
+        margin-left: 0.5rem;
     }
 
     .search button {
-        display: block;
+        display: flex;
         border: none;
-        background-color: transparent;
         margin-left: 0.5rem;
+        font-size: 1em;
+        background: rgba(84,58,183,1);
+        color: var(--light);
+        padding: 0.5rem;
+        border-radius: 4px;
+        margin-right: 0.5rem;
+        box-shadow: var(--box-shadow);
+    }
+
+    .fas {
+        margin-right: 0.5rem;
     }
 }

@@ -1,6 +1,6 @@
 <header>
     <nav>
-        <a href="/"><img src="/logo.png"></a>
+        <a href="/"><img src="/logo.png"  alt="Logo Rijksmuseum"></a>
         <div class="nav">
             <ul>
                 <li><a href="/rembrandt-van-rijn">Rembrandt van Rijn</a></li>
@@ -8,10 +8,13 @@
             <div class="search" id="search">
                 <form method="get" action="/search" id="search-form">
                     <label>
-                        <input type="search" name="artist" placeholder="Zoek een schilder"/>
+                        Zoek een schilder
+                        <input type="search" name="artist" placeholder="Rembrandt van Rijn"/>
                     </label>
                 </form>
-                <button form="search-form" type="submit"><i class="fas fa-search fa-2x"></i></button>
+                <button form="search-form" type="submit">
+                    <i class="fas fa-search"></i> Zoek
+                </button>
             </div>
         </div>
     </nav>
