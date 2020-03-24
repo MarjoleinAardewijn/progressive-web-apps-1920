@@ -437,7 +437,7 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 <details>
     <summary>Network</summary>
     
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77469287-1e4aba00-6e0f-11ea-9f27-5bbb84761121.png "Network")
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77469587-9c0ec580-6e0f-11ea-92b1-9340f05e3f18.png "Network")
 </details>
 
 ## Feature Wishlist
