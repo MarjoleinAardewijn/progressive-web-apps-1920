@@ -403,13 +403,13 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 <details>
     <summary>Audit</summary>
     
-![DevTools Lightroom Audit]( "Audit")
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77458924-39153280-6dff-11ea-8015-4dafa4755930.png "Audit")
 </details>
 
 <details>
     <summary>Network</summary>
     
-![DevTools Network Tab]( "Network")
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77458679-e20f5d80-6dfe-11ea-8b41-349d689f3b49.png "Network")
 </details>
 
 ### Lazy Load Images
