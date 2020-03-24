@@ -1,9 +1,10 @@
-const CORE_CACHE_VERSION = 4,
+const CORE_CACHE_VERSION = 5,
     CORE_CACHE_NAME = `core-v${CORE_CACHE_VERSION}`,
     HTML_CACHE_NAME = `core-html-v${CORE_CACHE_VERSION}`,
     CORE_ASSETS = [
         '/offline',
         '/index.css',
+        '/index.js'
     ];
 
 self.addEventListener('install', event => {
