@@ -1,21 +1,24 @@
-function basicPage(res, view, title) {
+function basicPage(res, view, title, revManifest) {
     res.render(view, {
-        title
+        title,
+        revManifest
     })
 }
 
-function pageWithData(res, view, title, data) {
+function pageWithData(res, view, title, data, revManifest) {
     return res.render(view, {
         title,
-        data
+        data,
+        revManifest
     });
 }
 
-function search(res, title, query, data) {
+function search(res, title, query, data, revManifest) {
     return res.render('results', {
         title,
         query,
-        data
+        data,
+        revManifest
     });
 }
 

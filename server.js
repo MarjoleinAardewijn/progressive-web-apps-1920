@@ -3,6 +3,7 @@ const config = require('./config');
 // Require (third-party) modules
 const compression = require('compression'),
     express = require('express'),
+    revManifest = require('./static/rev-manifest'),
     render = require('./scripts/modules/render'),
     router = require('./scripts/modules/router'),
     // Create new express app in 'app'
@@ -22,23 +23,23 @@ app.set('view engine', 'ejs')
     .use(compression())
 
     .get('/', function(req, res) {
-        render.basicPage(res, 'home', 'Rijksmuseum Schilders');
+        render.basicPage(res, 'home', 'Rijksmuseum Schilders', revManifest);
     })
 
     .get('/offline', (req, res) => {
-        render.basicPage(res, 'offline', 'Oeps! Je bent offline.');
+        render.basicPage(res, 'offline', 'Oeps! Je bent offline.', revManifest);
     })
 
     .get('/rembrandt-van-rijn', function(req, res) {
-        router.overview(res);
+        router.overview(res, revManifest);
     })
 
     .get('/schilderij/:id', function(req, res) {
-        router.details(res, req.params.id);
+        router.details(res, req.params.id, revManifest);
     })
 
     .get('/search', function(req, res) {
-        router.search(res, req.query.artist);
+        router.search(res, req.query.artist, revManifest);
     })
     // Actually set up the server
     .listen(config.port, function() {
