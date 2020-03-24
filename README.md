@@ -389,7 +389,7 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 <details>
     <summary>Audit</summary>
     
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77429261-aada8580-6dd9-11ea-97e5-4d9da7d8e686.png "Audit")
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77459161-927d6180-6dff-11ea-919e-3a6511dfd9ac.png "Audit")
 </details>
 
 <details>
@@ -412,18 +412,20 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77458679-e20f5d80-6dfe-11ea-8b41-349d689f3b49.png "Network")
 </details>
 
+### 
+
 ### Lazy Load Images
 
 <details>
     <summary>Audit</summary>
     
-![DevTools Lightroom Audit]( "Audit")
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77465863-9f06b780-6e09-11ea-9f1d-08cbbe7aa2bb.png "Audit")
 </details>
 
 <details>
     <summary>Network</summary>
     
-![DevTools Network Tab]( "Network")
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77465855-9c0bc700-6e09-11ea-8362-c4141466d357.png "Network")
 </details>
 
 ## Feature Wishlist
@@ -445,6 +447,7 @@ The sources I used the most during the development of the app are:
 - [Heroku](https://devcenter.heroku.com/articles/heroku-cli)
 - [gzip](https://expressjs.com/en/advanced/best-practice-performance.html)
 - [Compression](https://www.npmjs.com/package/compression)
+- [Lazy Loading Images](https://css-tricks.com/the-complete-guide-to-lazy-loading-images/)
 
 ## Credits
 
