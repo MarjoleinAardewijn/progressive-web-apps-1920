@@ -43,14 +43,14 @@
     }
 
     .search label input {
-        width: 56%;
+        width: 51%;
         margin-left: 0.5rem;
     }
 
     .search button {
         display: flex;
+        align-items: center;
         border: none;
-        margin-left: 0.5rem;
         font-size: 1em;
         background: rgba(84,58,183,1);
         color: var(--light);
@@ -58,9 +58,5 @@
         border-radius: 4px;
         margin-right: 0.5rem;
         box-shadow: var(--box-shadow);
-    }
-
-    .fas {
-        margin-right: 0.5rem;
     }
 }

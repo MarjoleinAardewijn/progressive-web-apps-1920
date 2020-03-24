@@ -1,0 +1,7 @@
+img.lazy {
+    opacity: 0;
+}
+
+img.loaded {
+    opacity: 1;
+}
