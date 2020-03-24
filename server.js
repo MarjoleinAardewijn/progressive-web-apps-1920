@@ -1,7 +1,8 @@
 const config = require('./config');
 
 // Require (third-party) modules
-const express = require('express'),
+const compression = require('compression'),
+    express = require('express'),
     render = require('./scripts/modules/render'),
     router = require('./scripts/modules/router'),
     // Create new express app in 'app'
@@ -16,6 +17,9 @@ app.set('view engine', 'ejs')
     // If the url matches a file it will send that file
     // Sending something (responding) ends the response cycle
     .use(express.static('static'))
+
+    // Gzip files
+    .use(compression())
 
     .get('/', function(req, res) {
         render.basicPage(res, 'home', 'Rijksmuseum Schilders');

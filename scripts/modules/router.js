@@ -12,7 +12,6 @@ async function overview(res) {
         render.pageWithData(res, 'overview', title, overviewData);
     } catch (err) {
         console.log('Error: ', err);
-    } finally {
         render.basicPage(res, '404', 'Oeps! Er is iets misgegaan, probeer het later nog eens.');
     }
 }
@@ -26,7 +25,6 @@ async function details(res, query) {
         render.pageWithData(res, 'details', detailsData.title, detailsData);
     } catch (err) {
         console.log('Error: ', err);
-    } finally {
         render.basicPage(res, '404', 'Oeps! Er is iets misgegaan, probeer het later nog eens.');
     }
 }
@@ -42,7 +40,6 @@ async function search(res, query) {
             render.search(res, title, artist, searchData);
         } catch (err) {
             console.log('Error: ', err);
-        } finally {
             render.basicPage(res, '404', 'Oeps! Er is iets misgegaan, probeer het later nog eens.');
         }
     } else {
@@ -51,7 +48,6 @@ async function search(res, query) {
             render.search(res, title, config.artistDefault, searchData);
         } catch (err) {
             console.log('Error: ', err);
-        } finally {
             render.basicPage(res, '404', 'Oeps! Er is iets misgegaan, probeer het later nog eens.');
         }
     }
