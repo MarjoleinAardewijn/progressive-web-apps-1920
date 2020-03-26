@@ -383,36 +383,7 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77428256-19b6df00-6dd8-11ea-93c1-b19102955ecc.png "Network")
 </details>
 
-### 5. Caching
-
-#### Service Worker
-<details>
-    <summary>Audit</summary>
-    
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77459161-927d6180-6dff-11ea-919e-3a6511dfd9ac.png "Audit")
-</details>
-
-<details>
-    <summary>Network</summary>
-    
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77429108-7797f680-6dd9-11ea-8366-630d429a88ea.png "Network")
-</details>
-
-#### Browser
-
-<details>
-    <summary>Audit</summary>
-    
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77458924-39153280-6dff-11ea-8015-4dafa4755930.png "Audit")
-</details>
-
-<details>
-    <summary>Network</summary>
-    
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77458679-e20f5d80-6dfe-11ea-8b41-349d689f3b49.png "Network")
-</details>
-
-### Lazy Load Images
+### 5. Lazy Load Images
 
 <details>
     <summary>Audit</summary>
@@ -426,7 +397,7 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77465855-9c0bc700-6e09-11ea-8362-c4141466d357.png "Network")
 </details>
 
-### Eliminate render-blocking resources
+### 6. Eliminate render-blocking resources
 
 <details>
     <summary>Audit</summary>
@@ -438,6 +409,49 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
     <summary>Network</summary>
     
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77469587-9c0ec580-6e0f-11ea-92b1-9340f05e3f18.png "Network")
+</details>
+
+### 7. Caching
+
+#### Service Worker
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77459161-927d6180-6dff-11ea-919e-3a6511dfd9ac.png "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77654972-10fa1080-6f72-11ea-8c96-cf2e8fc39730.png "Network")
+</details>
+
+#### Browser
+
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77458924-39153280-6dff-11ea-8015-4dafa4755930.png "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+    
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77654983-13f50100-6f72-11ea-89eb-77f7b0b96c3f.png "Network")
+</details>
+
+#### All
+
+<details>
+    <summary>Audit</summary>
+    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77458924-39153280-6dff-11ea-8015-4dafa4755930.png "Audit")
+</details>
+
+<details>
+    <summary>Network</summary>
+    
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77655345-9087df80-6f72-11ea-885f-812e1a69c645.png "Network")
 </details>
 
 ## Feature Wishlist
