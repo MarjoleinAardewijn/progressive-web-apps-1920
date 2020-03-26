@@ -4,9 +4,15 @@ I've worked with servers before, but never this way and always with PHP, not Jav
 
 ![App Home](https://user-images.githubusercontent.com/23479038/77656804-b31af800-6f74-11ea-9f78-0487e1a7a0a3.png "Rijksmuseum Schilders App")
 
+<details>
+    <summary>Overview Page</summary>
 ![App Overview](https://user-images.githubusercontent.com/23479038/77656814-b57d5200-6f74-11ea-8889-4236383e26c7.png "Rijksmuseum Schilders App - Overview")
+</details>
 
+<details>
+    <summary>Details Page</summary>
 ![App Details](https://user-images.githubusercontent.com/23479038/77656819-b6ae7f00-6f74-11ea-8535-a661746d839a.png "Rijksmuseum Schilders App - Details")
+</details>
 
 ## Description
 
