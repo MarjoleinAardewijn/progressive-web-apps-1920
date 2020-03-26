@@ -328,24 +328,6 @@ Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering t
 <details>
     <summary>Audit</summary>
     
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77423366-5af6c100-6dcf-11ea-8f64-e501b6d7b2ce.png "Audit")
-</details>
-
-<details>
-    <summary>Network</summary>
-    
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77423265-2aaf2280-6dcf-11ea-91c5-cef3db378a9e.png "Network")
-</details>
-
-### 2. Fix Accessablilty and SEO issues
-
-During the first audit I saw that my app didn't score well on Accessablilty and SEO. So, I fixed all those issues first. 
-
-The biggest issues for accessablilty were that all the image tags (`<img>`) didn't have an `alt` text, the `input` field of the search form didn't have text in the label and the `button` didn't have text either. This weren't really performance issues, but it was important for the accessablility of the app. 
-
-<details>
-    <summary>Audit</summary>
-    
 ![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77424033-c55c3100-6dd0-11ea-8185-4563ad927001.png "Audit")
 </details>
 
@@ -355,7 +337,7 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77423887-7b734b00-6dd0-11ea-9ee4-6071a81beaaf.png "Network")
 </details>
 
-### 3. Minifying
+### 2. Minifying
 
 <details>
     <summary>Audit</summary>
@@ -369,7 +351,7 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77428658-bbd6c700-6dd8-11ea-8b72-7771250b6122.png "Network")
 </details>
 
-### 4. Gzip
+### 3. Gzip
 
 <details>
     <summary>Audit</summary>
@@ -383,7 +365,7 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77428256-19b6df00-6dd8-11ea-93c1-b19102955ecc.png "Network")
 </details>
 
-### 5. Lazy Load Images
+### 4. Lazy Load Images
 
 <details>
     <summary>Audit</summary>
@@ -397,7 +379,7 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77465855-9c0bc700-6e09-11ea-8362-c4141466d357.png "Network")
 </details>
 
-### 6. Eliminate render-blocking resources
+### 5. Eliminate render-blocking resources
 
 <details>
     <summary>Audit</summary>
@@ -411,7 +393,7 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77469587-9c0ec580-6e0f-11ea-92b1-9340f05e3f18.png "Network")
 </details>
 
-### 7. Caching
+### 6. Caching
 
 #### Service Worker
 <details>
