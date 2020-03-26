@@ -2,11 +2,11 @@
 
 I've worked with servers before, but never this way and always with PHP, not JavaScript. So I learned a lot from this. I've heard of PWAs but had never worked with them, let alone made one myself! That is why I am very proud that I managed to make one myself. I really liked making a PWA and will certainly try to do this more often in the future.
 
-![App Home](https://user-images.githubusercontent.com/23479038/76788583-7d7b4f80-67bb-11ea-9449-1417012f6c13.png "Rijksmuseum Schilders App")
+![App Home](https://user-images.githubusercontent.com/23479038/77656804-b31af800-6f74-11ea-9f78-0487e1a7a0a3.png "Rijksmuseum Schilders App")
 
-![App Overview](https://user-images.githubusercontent.com/23479038/77340780-15ce8280-6d2e-11ea-945f-6c95f8720400.png "Rijksmuseum Schilders App - Overview")
+![App Overview](https://user-images.githubusercontent.com/23479038/77656814-b57d5200-6f74-11ea-8889-4236383e26c7.png "Rijksmuseum Schilders App - Overview")
 
-![App Details](https://user-images.githubusercontent.com/23479038/76788660-a1d72c00-67bb-11ea-973f-ae72ce9c435f.png "Rijksmuseum Schilders App - Details")
+![App Details](https://user-images.githubusercontent.com/23479038/77656819-b6ae7f00-6f74-11ea-8535-a661746d839a.png "Rijksmuseum Schilders App - Details")
 
 ## Description
 
