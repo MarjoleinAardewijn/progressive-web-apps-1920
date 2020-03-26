@@ -16,8 +16,10 @@ const express = require('express'),
 
     // gzip files
 app.use(compression())
-    // cache css file (browser)
+    // cache css and js files
     .use(/.*-[0-9a-f]{10}\..*/, cacheMiddleWare)
+    // cache images / icons
+    .use(/.*.(jpg|jpeg|png|gif|ico|svg)$/, cacheMiddleWare)
 
     // Link the templating engine to the express app
     .set('view engine', 'ejs')
