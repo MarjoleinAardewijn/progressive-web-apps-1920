@@ -7,12 +7,13 @@ const express = require('express'),
     render = require('./scripts/modules/render'),
     router = require('./scripts/modules/router'),
     // Create new express app in 'app'
-    app = express(),
-    // function for setting cache-control headers
-    cacheMiddleWare = (req, res, next) => {
-        res.setHeader('Cache-Control', 'max-age=365000000, immutable');
-        next();
-    };
+    app = express();
+
+// function for setting cache-control headers
+const cacheMiddleWare = (req, res, next) => {
+    res.setHeader('Cache-Control', 'max-age=365000000, immutable');
+    next();
+};
 
     // gzip files
 app.use(compression())
