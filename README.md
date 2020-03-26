@@ -440,7 +440,7 @@ The biggest issues for accessablilty were that all the image tags (`<img>`) didn
 ![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77654983-13f50100-6f72-11ea-89eb-77f7b0b96c3f.png "Network")
 </details>
 
-#### All
+#### Service Worker and Browser Cache
 
 <details>
     <summary>Audit</summary>
