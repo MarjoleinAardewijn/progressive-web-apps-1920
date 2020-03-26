@@ -26,6 +26,8 @@ For more information about my WAFS project see the [README](https://github.com/M
 * [To Do](#To-do)
 * [Live Demo](#Live-demo)
 * [Usage](#Usage)
+  * [Development](#Development)
+  * [Production](#Production)
 * [API](#Api)
 * [Performance Enhancements](#Performance-Enhancements)
 * [Feature Wishlist](#Feature-Wishlist)
@@ -43,8 +45,8 @@ For more information about my WAFS project see the [README](https://github.com/M
 - [x] Implement Service Worker.
 - [x] Add icons to manifest.json.
 - [x] Deploy site (Heroku).
-- [ ] Cache images.
-- [ ] Optimize the Critical Rendering Path.
+- [x] Cache images.
+- [x] Optimize the Critical Rendering Path.
 
 ## Live Demo
 
@@ -52,6 +54,10 @@ The live demo of the app can be found here:
 [Live Demo Link](https://ancient-hamlet-10241.herokuapp.com/)
 
 ## Usage
+See the installation guide to learn how to install and use the app.
+
+<details>
+    <summary>Installation Guide</summary>
 
 Go via the terminal to the folder you want the project to be placed:
 
@@ -83,10 +89,12 @@ Install all the dependencies:
     npm install
 ```
 
-Start the server:
+### Development
+
+When in development, run the following command to watch the changes:
 
 ```
-    npm start
+    npm run dev:watch
 ```
 
 In you browser. go to:
@@ -95,11 +103,42 @@ In you browser. go to:
    localhost:3000 
 ```
 
-When working with on the styling, open a new tab in your terminal and run the following command to watch the changes:
+### Production
 
+When the app the finished use Heroku to deploy it.
+
+First, login to Heroku:
 ```
-    npm run watch:css
+    heroku login
 ```
+
+Deploy the app by creating a new domain on Heroku. Heroku generates a random name for your app.
+```
+    heroku create
+```
+
+Clone the repository:
+```
+    heroku git:remote -a name-of-the-app
+```
+
+Push master branch to Heroku:
+```
+    git add .
+    git commit -m "Heroku"
+    git push heroku master
+```
+
+Open the app in your browser to check if everything went well:
+```
+    heroku open
+```
+
+To see the logs when something went wrong, run the following command:
+```
+    heroku logs --tail
+```
+</details>
 
 ## API
 
@@ -347,6 +386,51 @@ Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering t
 
 ### 2. Minifying
 
+Before minifying my CSS and JS, I first concatenated all the CSS and JS files to `index.css` and `index.js` using `gulp-concat`. After that I minified the CSS using `gulp-clean-css`.
+And finally I used `gulp-autoprefixer` to prefix my CSS.
+
+I minified the CSS and JS files to make sure the CSS and JS that is send over the network is smaller, this way it downloads faster.
+
+<details>
+    <summary>Code</summary>
+
+`build-css.js`:
+    
+```js
+const gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    autoprefixer = require('gulp-autoprefixer'),
+    cleanCSS = require('gulp-clean-css');
+
+return gulp.src([
+    './src/css/variables.css',
+    './src/css/reset.css',
+    './src/css/typography.css',
+    './src/css/index.css',
+    './src/css/components/*.css',
+])
+    .pipe(concat('index.css'))
+    .pipe(cleanCSS())
+    .pipe(autoprefixer({
+        cascade: false
+    }))
+    .pipe(gulp.dest('./static/'));
+```
+
+`build-js.js`:
+
+```js
+const gulp = require('gulp'),
+    concat = require('gulp-concat');
+
+return gulp.src([
+    './src/js/*.js',
+])
+    .pipe(concat('index.js'))
+    .pipe(gulp.dest('./static/'));
+```
+</details>
+
 <details>
     <summary>Audit</summary>
     
@@ -360,6 +444,27 @@ Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering t
 </details>
 
 ### 3. Gzip
+
+I used gzip to compress the files, so that all the files send over the network are smaller and therefor will download faster. And besides that it doesn't cost the user more data than absolutely necessary.
+
+For gzipping all the files I used `compression` as compression middleware.
+
+<details>
+    <summary>Code</summary>
+
+`server.js`:
+
+```js
+const express = require('express');
+// require compression middleware for gzip.
+const compression = require('compression');
+// Create new express app in 'app'
+const app = express();
+
+// gzip files
+app.use(compression());
+```
+</details>
 
 <details>
     <summary>Audit</summary>
@@ -375,6 +480,79 @@ Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering t
 
 ### 4. Lazy Load Images
 
+To make sure that images are only downloaded when needed I added lazy loading. This prevents unnecessary downloads and therefor the website will load faster. 
+And here too, it costs the user less data, as long as he doesn't scroll further down to other images.
+
+<details>
+    <summary>Code</summary>
+    
+`lazyload.js`:
+
+```js
+document.addEventListener("DOMContentLoaded", function() {
+    let lazyloadImages;
+
+    if ("IntersectionObserver" in window) {
+        lazyloadImages = document.querySelectorAll(".lazy");
+        let imageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let image = entry.target;
+                    image.src = image.dataset.src;
+                    image.classList.remove("lazy");
+                    image.classList.add("loaded");
+                    imageObserver.unobserve(image);
+                }
+            });
+        });
+
+        lazyloadImages.forEach(function(image) {
+            imageObserver.observe(image);
+        });
+    } else {
+        let lazyloadThrottleTimeout;
+        lazyloadImages = document.querySelectorAll(".lazy");
+
+        function lazyload () {
+            if(lazyloadThrottleTimeout) {
+                clearTimeout(lazyloadThrottleTimeout);
+            }
+
+            lazyloadThrottleTimeout = setTimeout(function() {
+                let scrollTop = window.pageYOffset;
+                lazyloadImages.forEach(function(img) {
+                    if(img.offsetTop < (window.innerHeight + scrollTop)) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        img.classList.add('loaded');
+                    }
+                });
+                if(lazyloadImages.length === 0) {
+                    document.removeEventListener("scroll", lazyload);
+                    window.removeEventListener("resize", lazyload);
+                    window.removeEventListener("orientationChange", lazyload);
+                }
+            }, 20);
+        }
+
+        document.addEventListener("scroll", lazyload);
+        window.addEventListener("resize", lazyload);
+        window.addEventListener("orientationChange", lazyload);
+    }
+});
+```
+
+For this JS code to work I gave all the images on the overview page the class `lazy`.
+
+`paintings.ejs`:
+
+```html
+<div class="img-wrapper">
+    <img class="lazy" data-src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>" alt="<%= item.title%>">
+</div>
+```
+</details>
+
 <details>
     <summary>Audit</summary>
     
@@ -388,6 +566,9 @@ Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering t
 </details>
 
 ### 5. Eliminate render-blocking resources
+
+During the test I saw that the css from Fontawesome took very long to load and that only for 1 search image. So I decided to remove Fontawesome and just add a search icon to my project.
+This will make the website load faster, since it doesn't have to wait for the **CSSOM** from Fontawesome to be added to the **render tree** (DOM + CSSOM).
 
 <details>
     <summary>Audit</summary>
@@ -403,7 +584,141 @@ Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering t
 
 ### 6. Caching
 
+I added browser caching and cached files with the Service Worker to load already downloaded files instantly.
+
 #### Service Worker
+
+In the Service Worker (SW) I cache all the core assets (`offline` page, `index.css` and `index.js`) and the home page (`/`) when the SW is installed.
+
+<details>
+    <summary>Code</summary>
+
+`service-worker.js`:
+
+```js
+const CORE_CACHE_VERSION = 5,
+    CORE_CACHE_NAME = `core-v${CORE_CACHE_VERSION}`,
+    HTML_CACHE_NAME = `core-html-v${CORE_CACHE_VERSION}`,
+    CORE_ASSETS = [
+        '/offline',
+        '/index.css',
+        '/index.js'
+    ];
+
+self.addEventListener('install', event => {
+    console.log('Installing Service Worker');
+    event.waitUntil(
+        Promise.all([
+            caches.open(CORE_CACHE_NAME).then(cache => cache.addAll(CORE_ASSETS)),
+            fetchAndCache('/', HTML_CACHE_NAME)
+        ])
+            .then( () => self.skipWaiting())
+    );
+});
+```
+
+Helper function for caching files when fetched:
+
+```js
+/**
+ * Fetch url and add it to the cache
+ *
+ * @param request
+ * @param cacheName
+ * @returns {Promise<Response | never>}
+ */
+const fetchAndCache = (request, cacheName) => {
+    return fetch(request)
+        .then(response => {
+            if (!response.ok) {
+                throw new TypeError('Bad response status');
+            }
+
+            const clone = response.clone();
+            caches.open(cacheName).then((cache) => cache.put(request, clone));
+            return response;
+        })
+}
+```
+</details>
+
+And to get the cached files I used the **cache only strategy** and a **generic fallback** where I cache the files if they aren't cached previously.
+
+<details>
+    <summary>Code</summary>
+    
+First I check if the request is GET request and a file from the core assets. If that it true than I use the `cache only strategy` 
+where I open the cache for the core assets and get the requested file from the cache.
+
+If the file isn't a core asset I check if it's a HTML file. If so, I use the generic fallback where I open the cache where I 
+store all the HTML files and check if the file exists. If not, I fetch the file and store it in the cache for the next time 
+the user visits the page. And finally, when there is no internet **and** the file isn't cached, I open the core assets cache 
+and get the offline page.
+
+`service-worker.js`:
+
+```js
+self.addEventListener('fetch', event => {
+    console.log('Fetch Event: ', event.request.url);
+    if (isCoreGetRequest(event.request)) {
+        console.log('Core Get Request: ', event.request.url);
+        // cache only strategy
+        event.respondWith(
+            caches.open(CORE_CACHE_NAME)
+                .then(cache => cache.match(event.request.url))
+        )
+    } else if (isHtmlGetRequest(event.request)) {
+        console.log('HTML Get Request: ', event.request.url);
+        // generic fallback
+        event.respondWith(
+            caches.open(HTML_CACHE_NAME)
+                .then(cache => cache.match(event.request.url))
+                .then(response => response ? response : fetchAndCache(event.request, HTML_CACHE_NAME))
+                .catch(err => {
+                    return caches.open(CORE_CACHE_NAME)
+                        .then(cache => cache.match('/offline'))
+                })
+        )
+    }
+});
+```
+
+Helper functions:
+
+```js
+/**
+ * Checks if a request is a core GET request
+ *
+ * @param {Object} request        The request object
+ * @returns {Boolean}            Boolean value indicating whether the request is in the core mapping
+ */
+const isCoreGetRequest = (request) => {
+    return request.method === 'GET' && CORE_ASSETS.includes(getPathName(request.url));
+};
+
+/**
+ * Checks if a request is a GET and HTML request
+ *
+ * @param {Object} request        The request object
+ * @returns {Boolean}            Boolean value indicating whether the request is a GET and HTML request
+ */
+const isHtmlGetRequest = (request) => {
+    return request.method === 'GET' && (request.headers.get('accept') !== null && request.headers.get('accept').indexOf('text/html') > -1);
+};
+
+/**
+ * Get a pathname from a full URL by stripping off domain
+ *
+ * @param {Object} requestUrl        The request object, e.g. https://www.mydomain.com/index.css
+ * @returns {String}                Relative url to the domain, e.g. index.css
+ */
+const getPathName = (requestUrl) => {
+    const url = new URL(requestUrl);
+    return url.pathname;
+};
+```
+</details>
+
 <details>
     <summary>Audit</summary>
     
@@ -417,6 +732,41 @@ Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering t
 </details>
 
 #### Browser
+ 
+For browser caching I wrote a function for setting the cache-control headers on files so that the cache **expires in a year**. 
+I also gave it the `immutable` extension cache-control directive. This indicates that the response body **will not change** 
+over time and therefore the client will not send a conditional revalidation for the file to check for updates, even when 
+the user explicitly refreshes the page.
+
+<details>
+    <summary>Code</summary>
+    
+```js
+// function for setting cache-control headers
+const cacheMiddleWare = (req, res, next) => {
+    res.setHeader('Cache-Control', 'max-age=365000000, immutable');
+    next();
+};
+```
+</details>
+
+With the function I cache the files `index.css` and `index.js` by getting all the files with a revision hash (which are 
+only these two files) with a regexp and setting the cache-control header on those files. And for images I do the same, 
+but now I'm getting all the files with the following extensions: jpg, jpeg, png, gif, ico and svg.
+
+<details>
+    <summary>Code</summary>
+    
+```js
+const express = require('express'),
+    // Create new express app in 'app'
+    app = express();
+
+app.use(/.*-[0-9a-f]{10}\..*/, cacheMiddleWare)
+    // cache images / icons
+    .use(/.*.(jpg|jpeg|png|gif|ico|svg)$/, cacheMiddleWare)
+```
+</details>
 
 <details>
     <summary>Audit</summary>
@@ -432,6 +782,8 @@ Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering t
 
 #### Service Worker and Browser Cache
 
+After adding both caching techniques a lot of files are loaded instantly, which makes the app feel very fast.
+
 <details>
     <summary>Audit</summary>
     
@@ -445,6 +797,8 @@ Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering t
 </details>
 
 ## Feature Wishlist
+
+- [ ] Live Search on the paintings.
 
 ## Sources
 
@@ -464,6 +818,7 @@ The sources I used the most during the development of the app are:
 - [gzip](https://expressjs.com/en/advanced/best-practice-performance.html)
 - [Compression](https://www.npmjs.com/package/compression)
 - [Lazy Loading Images](https://css-tricks.com/the-complete-guide-to-lazy-loading-images/)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
 
 ## Credits
 
