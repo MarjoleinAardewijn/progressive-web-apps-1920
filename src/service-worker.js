@@ -8,7 +8,7 @@ const CORE_CACHE_VERSION = 5,
     ];
 
 self.addEventListener('install', event => {
-    console.log('Installing Wervice Worker');
+    console.log('Installing Service Worker');
     event.waitUntil(
         Promise.all([
             caches.open(CORE_CACHE_NAME).then(cache => cache.addAll(CORE_ASSETS)),
