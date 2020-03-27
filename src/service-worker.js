@@ -4,7 +4,7 @@ const CORE_CACHE_VERSION = 5,
     CORE_ASSETS = [
         '/offline',
         '/index.css',
-        '/index.js'
+        '/index-min.js'
     ];
 
 self.addEventListener('install', event => {
