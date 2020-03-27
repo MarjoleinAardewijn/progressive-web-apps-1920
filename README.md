@@ -871,6 +871,7 @@ The sources I used the most during the development of the app are:
 - [Gulp Concat](https://www.npmjs.com/package/gulp-concat)
 - [Gulp Clean CSS](https://www.npmjs.com/package/gulp-clean-css)
 - [Gulp Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+- [Gulp Minify](https://www.npmjs.com/package/gulp-minify)
 - [Rimraf](https://www.npmjs.com/package/rimraf)
 - [Chokidar](https://www.npmjs.com/package/chokidar-cli)
 - [npm-run-all](https://www.npmjs.com/package/npm-run-all)
