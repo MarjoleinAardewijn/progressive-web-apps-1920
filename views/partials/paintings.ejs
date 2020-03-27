@@ -1,11 +1,11 @@
 <main>
     <div id="objects" class="objects">
         <% if(data.length !== 0) {%>
-            <% data.map(item => { %>
+            <% data.map((item, i) => { %>
                 <a href="/schilderij/<%= item.objectNumber %>" class="link">
                     <div class="object">
                         <div class="img-wrapper">
-                            <img class="lazy" data-src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>" alt="<%= item.title%>">
+                            <img <% if (i >= 2 ) {%> class="lazy" data-src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%} else {%> src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%}%> alt="<%= item.title%>">
                         </div>
                         <div class="title">
                             <h3 class="title-name"><%= item.title %></h3>
