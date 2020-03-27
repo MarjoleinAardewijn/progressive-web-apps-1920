@@ -30,6 +30,7 @@ For more information about my WAFS project see the [README](https://github.com/M
   * [Production](#Production)
 * [API](#Api)
 * [Performance Enhancements](#Performance-Enhancements)
+* [Conclusion](#Conclusion)
 * [Feature Wishlist](#Feature-Wishlist)
 * [Sources](#Sources)
 * [Credits](#Credits)
