@@ -831,8 +831,8 @@ After adding both caching techniques a lot of files are loaded instantly, which 
 
 ## Conclusion
 
-Because the codebase of this PWA is so small, you don't see any changes between the `First Contentful Paint` and `First Meaningful Paint`. 
-The `Time To Interactive` decreases a bit from 1.0s to 0.8s.
+Because the codebase of this PWA is so small, you don't see any changes between the **First Contentful Paint** and **First Meaningful Paint**. 
+The **Time To Interactive** decreases a bit from 1.0s to 0.8s.
 
 Where you see the differences is in the time the PWA needs to load. It went from 4.6s to 450ms for all the users who visit the 
 website for the first time and 61ms for users who visited the website once before. All steps play a big role in optimizing the 
@@ -840,7 +840,7 @@ Critical Rendering Path, but changing the images and caching are giving the bigg
 compared to the `headerImage`. And caching everything makes that a lot of files, including the images, the next time the 
 user visits the page are almost instantly loaded. Which saves a lot of time! Especially for users who have slower networks.
 
-On a `slow 3G` network for instance, it takes without all the enhancements a shocking 11.8min to finish loading and with all the enhancements including caching 2.38s!
+On a **slow 3G** network for instance, it takes without all the enhancements a shocking 11.8min to finish loading and with all the enhancements including caching 2.38s!
 
 <details>
     <summary>Slow 3G Network: Tests</summary>
