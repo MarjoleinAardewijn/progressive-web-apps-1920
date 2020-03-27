@@ -1,3 +1,6 @@
+let noJS = document.getElementById('noJS');
+noJS.classList.add('hide');
+
 document.addEventListener("DOMContentLoaded", function() {
     let lazyloadImages;
 

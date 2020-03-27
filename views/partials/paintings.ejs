@@ -1,11 +1,13 @@
 <main>
+    <p id="noJS">Zet JavaScript aan om alle afbeeldingen te kunnen zien!</p>
+
     <div id="objects" class="objects">
         <% if(data.length !== 0) {%>
             <% data.map((item, i) => { %>
                 <a href="/schilderij/<%= item.objectNumber %>" class="link">
                     <div class="object">
                         <div class="img-wrapper">
-                            <img <% if (i >= 2 ) {%> class="lazy" data-src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%} else {%> src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%}%> alt="<%= item.title%>">
+                            <img <% if (i >= 4 ) {%> class="lazy" data-src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%} else {%> src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%}%> alt="<%= item.title%>">
                         </div>
                         <div class="title">
                             <h3 class="title-name"><%= item.title %></h3>

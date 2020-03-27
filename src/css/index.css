@@ -11,3 +11,12 @@ section {
   margin: 10vh auto;
   width: 80%;
 }
+
+#noJS {
+  color: #a83232;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
