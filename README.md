@@ -830,6 +830,7 @@ The sources I used the most during the development of the app are:
 ## Credits
 
 - [Example from Declan Rek](https://github.com/decrek/progressive-web-apps-1920/tree/master/examples/movies-example)
+- [Regexp for caching images](https://serverfault.com/questions/881567/nginx-regex-rule-for-caching-images-override-the-root-location-block)
 
 ## Licence
 
