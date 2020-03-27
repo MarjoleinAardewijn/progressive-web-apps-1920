@@ -29,8 +29,8 @@
 }
 
 .img-wrapper img {
-    max-width: 200%;
-    max-height: 200%;
+    max-width: 430%;
+    max-height: 430%;
     background-color: transparent;
     transition: transform 2s, filter 1.5s ease-in-out;
     transform-origin: center center;
