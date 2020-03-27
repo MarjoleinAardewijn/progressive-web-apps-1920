@@ -373,23 +373,20 @@ This will be returning the following data:
 Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering takes place on the server and not the client and is the content shown immediately when the HTML is parsed from the server instead of waiting for all the JavaScript to download and execute.
 
 <details>
-    <summary>Audit</summary>
+    <summary>Tests</summary>
     
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77424033-c55c3100-6dd0-11ea-8185-4563ad927001.png "Audit")
-</details>
+**Audit**
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77756635-df477f00-702f-11ea-82f4-a16df6f4f4ab.png "Audit")
 
-<details>
-    <summary>Network</summary>
-    
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77423887-7b734b00-6dd0-11ea-9ee4-6071a81beaaf.png "Network")
+**Network**
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77766777-66045800-7040-11ea-9ef1-ff0453fa9ae2.png "Network")
 </details>
 
 ### 2. Minifying
 
-Before minifying my CSS and JS, I first concatenated all the CSS and JS files to `index.css` and `index.js` using `gulp-concat`. After that I minified the CSS using `gulp-clean-css`.
-And finally I used `gulp-autoprefixer` to prefix my CSS.
+I minified the CSS using `gulp-clean-css` and the JavaScript using `gulp-minify`.
 
-I minified the CSS and JS files to make sure the CSS and JS that is send over the network is smaller, this way it downloads faster.
+I minified the CSS and JavaScript files to make sure the CSS and JavaScript that is send over the network is smaller, this way it downloads faster.
 
 <details>
     <summary>Code</summary>
@@ -398,9 +395,9 @@ I minified the CSS and JS files to make sure the CSS and JS that is send over th
     
 ```js
 const gulp = require('gulp'),
-    concat = require('gulp-concat'),
-    autoprefixer = require('gulp-autoprefixer'),
-    cleanCSS = require('gulp-clean-css');
+    concat = require('gulp-concat'), // concat all files
+    autoprefixer = require('gulp-autoprefixer'), // prefix CSS
+    cleanCSS = require('gulp-clean-css'); // minify
 
 return gulp.src([
     './src/css/variables.css',
@@ -421,26 +418,26 @@ return gulp.src([
 
 ```js
 const gulp = require('gulp'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'), // concat all files
+    minify = require('gulp-minify'); // minify
 
 return gulp.src([
     './src/js/*.js',
 ])
     .pipe(concat('index.js'))
+    .pipe(minify())
     .pipe(gulp.dest('./static/'));
 ```
 </details>
 
 <details>
-    <summary>Audit</summary>
-    
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77424426-66e38280-6dd1-11ea-99d6-07c5abb6224d.png "Audit")
-</details>
+    <summary>Tests</summary>
 
-<details>
-    <summary>Network</summary>
-    
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77428658-bbd6c700-6dd8-11ea-8b72-7771250b6122.png "Network")
+**Audit**    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77757871-45cd9c80-7032-11ea-96eb-a678c9730e68.png "Audit")
+
+**Network**
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77757706-00a96a80-7032-11ea-972c-557be2468f00.png "Network")
 </details>
 
 ### 3. Gzip
@@ -467,15 +464,13 @@ app.use(compression());
 </details>
 
 <details>
-    <summary>Audit</summary>
-    
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77428128-e83e1380-6dd7-11ea-85e6-371fef718b15.png "Audit")
-</details>
+    <summary>Tests</summary>
 
-<details>
-    <summary>Network</summary>
-    
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77428256-19b6df00-6dd8-11ea-93c1-b19102955ecc.png "Network")
+**Audit**    
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77758401-326f0100-7033-11ea-8c49-9a508b37d6d4.png "Audit")
+
+**Network** 
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77767201-fe024180-7040-11ea-988b-3ad014ccf73d.png "Network")
 </details>
 
 ### 4. Lazy Load Images
@@ -541,51 +536,90 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
-For this JS code to work I gave all the images, except the first 2 images, on the overview page the class `lazy`.
+For this JavaScript code to work I gave all the images, except the first 4 images, on the overview page the class `lazy`.
 
-I didn't give the first 2 images the `lazy` class, because any image that is present in the viewport, or at the beginning 
-of the webpage, should probably not be lazy loaded. And since the first 2 images are on almost all devices present in the viewport I 
-chose not to lazy load those 2 images.
+I didn't give the first 4 images the `lazy` class, because any image that is present in the viewport, or at the beginning 
+of the webpage, should probably not be lazy loaded. I chose to use 4 because this is the amount of images that is present 
+in the viewport on desktops and I didn't have the time to make this responsive. 
+The perfect scenario would be that only the images that are in the viewport, regardless of which device, are shown.
 
 `paintings.ejs`:
 
 ```html
 <% data.map((item, i) => { %>
     ...
-        <img <% if (i >= 2 ) {%> class="lazy" data-src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%} else {%> src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%}%> alt="<%= item.title%>">
+        <img <% if (i >= 4 ) {%> class="lazy" data-src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%} else {%> src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%}%> alt="<%= item.title%>">
     ...
 ```
 
 For more information about lazy loading see this [article from CSS-Tricks](https://css-tricks.com/the-complete-guide-to-lazy-loading-images/).
+
+When the user disabled JavaScript, lazy loading won't work and the images won't show. Because the images don't have a `src` 
+attribute, they won't be downloaded and can't be shown on the page. To fix this problem I added an (error) message 
+which will show when there is no JavaScript.
+
+`paintings.ejs`:
+
+```html
+<main>
+    <p id="noJS">Zet JavaScript aan om alle afbeeldingen te kunnen zien!</p>
+...
+```
+
+To hide the message when JavaScript is enabled, I add the class `hide` to the element with which I hide it using JavaScript and CSS.
+
+`lazyload.js`:
+
+```js
+let noJS = document.getElementById('noJS');
+noJS.classList.add('hide');
+
+...
+```
+
+`index.css`:
+
+```css
+.hide {
+  display: none;
+}
+```
 </details>
 
 <details>
-    <summary>Audit</summary>
-    
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77465863-9f06b780-6e09-11ea-9f1d-08cbbe7aa2bb.png "Audit")
+    <summary>Tests</summary>
+
+**Audit**   
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77759329-d60ce100-7034-11ea-9714-f48886383ace.png "Audit")
+
+**Network**
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77759094-6ac30f00-7034-11ea-89e6-f831bd3f7e07.png "Network")
+</details>
+
+### 5. Image Size
+
+The web images (`webImage`) from the Rijksmuseam API are very big which makes the website load very slowly! But this can be reduced 
+by using another image. The Rijksmuseum API also gives the option to use a header image (`headerImage`) which is A LOT smaller! By using 
+`headerImage` instead of the `webImage` the website will load faster.
+
+<details>
+    <summary>Code</summary>
+
+`paintings.ejs`:
+
+```html
+<img <% if (i >= 4 ) {%> class="lazy" data-src="<%= item.headerImage ? item.headerImage.url : '/placeholder.png' %>"<%} else {%> src="<%= item.headerImage ? item.headerImage.url : '/placeholder.png' %>"<%}%> alt="<%= item.title%>">
+```
 </details>
 
 <details>
-    <summary>Network</summary>
-    
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77465855-9c0bc700-6e09-11ea-8362-c4141466d357.png "Network")
-</details>
+    <summary>Tests</summary>
 
-### 5. Eliminate render-blocking resources
+**Audit**
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77777536-02822680-7050-11ea-8eee-e692ace46cff.png "Audit")
 
-During the test I saw that the css from Fontawesome took very long to load and that only for 1 search image. So I decided to remove Fontawesome and just add a search icon to my project.
-This will make the website load faster, since it doesn't have to wait for the **CSSOM** from Fontawesome to be added to the **render tree** (DOM + CSSOM).
-
-<details>
-    <summary>Audit</summary>
-    
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77469274-1be86000-6e0f-11ea-8d50-dc5f1bee41eb.png "Audit")
-</details>
-
-<details>
-    <summary>Network</summary>
-    
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77469587-9c0ec580-6e0f-11ea-92b1-9340f05e3f18.png "Network")
+**Network**
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77777431-d8c8ff80-704f-11ea-8177-8cc6cc9a2287.png "Network")
 </details>
 
 ### 6. Caching
@@ -726,15 +760,13 @@ const getPathName = (requestUrl) => {
 </details>
 
 <details>
-    <summary>Audit</summary>
-    
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77459161-927d6180-6dff-11ea-919e-3a6511dfd9ac.png "Audit")
-</details>
+    <summary>Tests</summary>
+   
+**Audit**
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77777536-02822680-7050-11ea-8eee-e692ace46cff.png "Audit")
 
-<details>
-    <summary>Network</summary>
-
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77654972-10fa1080-6f72-11ea-8c96-cf2e8fc39730.png "Network")
+**Network**
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77777767-4ecd6680-7050-11ea-8a5f-643dfee7c712.png "Network")
 </details>
 
 #### Browser
@@ -775,15 +807,13 @@ app.use(/.*-[0-9a-f]{10}\..*/, cacheMiddleWare)
 </details>
 
 <details>
-    <summary>Audit</summary>
+    <summary>Tests</summary>
     
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77458924-39153280-6dff-11ea-8015-4dafa4755930.png "Audit")
-</details>
+**Audit**
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77778179-e9c64080-7050-11ea-8b41-70f45d2f2682.png "Audit")
 
-<details>
-    <summary>Network</summary>
-    
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77654983-13f50100-6f72-11ea-89eb-77f7b0b96c3f.png "Network")
+**Network**
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77778066-bedbec80-7050-11ea-8552-cf5f1a60576b.png "Network")
 </details>
 
 #### Service Worker and Browser Cache
@@ -791,15 +821,39 @@ app.use(/.*-[0-9a-f]{10}\..*/, cacheMiddleWare)
 After adding both caching techniques a lot of files are loaded instantly, which makes the app feel very fast.
 
 <details>
-    <summary>Audit</summary>
-    
-![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77458924-39153280-6dff-11ea-8015-4dafa4755930.png "Audit")
+    <summary>Tests</summary>
+
+**Audit**
+![DevTools Lightroom Audit](https://user-images.githubusercontent.com/23479038/77777536-02822680-7050-11ea-8eee-e692ace46cff.png "Audit")
+
+**Network**
+![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77778345-298d2800-7051-11ea-9791-b3a6e7d773ba.png "Network")
 </details>
 
+## Conclusion
+
+Because the codebase of this PWA is so small, you don't see any changes between the `First Contentful Paint` and `First Meaningful Paint`. 
+The `Time To Interactive` decreases a bit from 1.0s to 0.8s.
+
+Where you see the differences is in the time the PWA needs to load. It went from 4.6s to 450ms for all the users who visit the 
+website for the first time and 61ms for users who visited the website once before. All steps play a big role in optimizing the 
+Critical Rendering Path, but changing the images and caching are giving the biggest boost in performance. This because the `webImage`'s from the Rijksmuseum API are **very** big  
+compared to the `headerImage`. And caching everything makes that a lot of files, including the images, the next time the 
+user visits the page are almost instantly loaded. Which saves a lot of time! Especially for users who have slower networks.
+
+On a `slow 3G` network for instance, it takes without all the enhancements a shocking 11.8min to finish loading and with all the enhancements including caching 2.38s!
+
 <details>
-    <summary>Network</summary>
-    
-![DevTools Network Tab](https://user-images.githubusercontent.com/23479038/77655345-9087df80-6f72-11ea-885f-812e1a69c645.png "Network")
+    <summary>Slow 3G Network: Tests</summary>
+
+**Before Enhancements**
+![Slow 3G Network Before](https://user-images.githubusercontent.com/23479038/77770212-3277fc80-7045-11ea-993d-3f5e42dfa172.png "Slow 3G Network Before")
+
+**After Enhancements**
+![Slow 3G Network After](https://user-images.githubusercontent.com/23479038/77774838-f98f5600-704b-11ea-8043-901787393aaa.png "Slow 3G Network After")
+
+**After Enhancements with Caching**
+![Slow 3G Network After with Caching](https://user-images.githubusercontent.com/23479038/77775082-5985fc80-704c-11ea-9593-da65b63c7ede.png "Slow 3G Network After with Caching")
 </details>
 
 ## Feature Wishlist
@@ -831,6 +885,7 @@ The sources I used the most during the development of the app are:
 
 - [Example from Declan Rek](https://github.com/decrek/progressive-web-apps-1920/tree/master/examples/movies-example)
 - [Regexp for caching images](https://serverfault.com/questions/881567/nginx-regex-rule-for-caching-images-override-the-root-location-block)
+- [README from Folkert-Jan van der Pol](https://github.com/follywolly/performance-matters-1819)
 
 ## Licence
 
