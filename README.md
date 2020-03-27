@@ -480,8 +480,7 @@ app.use(compression());
 
 ### 4. Lazy Load Images
 
-To make sure that images are only downloaded when needed I added lazy loading. This prevents unnecessary downloads and therefor the website will load faster. 
-And here too, it costs the user less data, as long as he doesn't scroll further down to other images.
+To make sure that images are only downloaded when needed I added lazy loading using the Intersection Observer API. Lazy loading images prevents unnecessary downloads and therefor the website will load faster.
 
 <details>
     <summary>Code</summary>
@@ -542,15 +541,22 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
-For this JS code to work I gave all the images on the overview page the class `lazy`.
+For this JS code to work I gave all the images, except the first 2 images, on the overview page the class `lazy`.
+
+I didn't give the first 2 images the `lazy` class, because any image that is present in the viewport, or at the beginning 
+of the webpage, should probably not be lazy loaded. And since the first 2 images are on almost all devices present in the viewport I 
+chose not to lazy load those 2 images.
 
 `paintings.ejs`:
 
 ```html
-<div class="img-wrapper">
-    <img class="lazy" data-src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>" alt="<%= item.title%>">
-</div>
+<% data.map((item, i) => { %>
+    ...
+        <img <% if (i >= 2 ) {%> class="lazy" data-src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%} else {%> src="<%= item.webImage ? item.webImage.url : '/placeholder.png' %>"<%}%> alt="<%= item.title%>">
+    ...
 ```
+
+For more information about lazy loading see this [article from CSS-Tricks](https://css-tricks.com/the-complete-guide-to-lazy-loading-images/).
 </details>
 
 <details>
@@ -799,6 +805,7 @@ After adding both caching techniques a lot of files are loaded instantly, which 
 ## Feature Wishlist
 
 - [ ] Live Search on the paintings.
+- [ ] Check which images are present in the viewport and don't lazy load them **depending on the device that is used**.
 
 ## Sources
 
@@ -815,7 +822,7 @@ The sources I used the most during the development of the app are:
 - [Chokidar](https://www.npmjs.com/package/chokidar-cli)
 - [npm-run-all](https://www.npmjs.com/package/npm-run-all)
 - [Heroku](https://devcenter.heroku.com/articles/heroku-cli)
-- [gzip](https://expressjs.com/en/advanced/best-practice-performance.html)
+- [Gzip](https://expressjs.com/en/advanced/best-practice-performance.html)
 - [Compression](https://www.npmjs.com/package/compression)
 - [Lazy Loading Images](https://css-tricks.com/the-complete-guide-to-lazy-loading-images/)
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
