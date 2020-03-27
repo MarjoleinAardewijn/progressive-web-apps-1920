@@ -1,7 +1,5 @@
 # Rijksmuseum paintings PWA
 
-I've worked with servers before, but never this way and always with PHP, not JavaScript. So I learned a lot from this. I've heard of PWAs but had never worked with them, let alone made one myself! That is why I am very proud that I managed to make one myself. I really liked making a PWA and will certainly try to do this more often in the future.
-
 ![App Home](https://user-images.githubusercontent.com/23479038/77656804-b31af800-6f74-11ea-9f78-0487e1a7a0a3.png "Rijksmuseum Schilders App")
 
 <details>
@@ -371,7 +369,7 @@ This will be returning the following data:
 
 ### 1. Server Side Rendering
 
-Firstly, I rewrote the DOM from WAFS to ejs templates. This way, the rendering takes place on the server and not the client and is the content shown immediately when the HTML is parsed from the server instead of waiting for all the JavaScript to download and execute.
+Firstly, I refactored the DOM from WAFS to ejs templates. This way, the rendering takes place on the server and not the client and is the content shown immediately when the HTML is parsed from the server instead of waiting for all the JavaScript to download and execute.
 
 <details>
     <summary>Tests</summary>
