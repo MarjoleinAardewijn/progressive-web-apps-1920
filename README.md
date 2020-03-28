@@ -840,7 +840,7 @@ By changing the images I improved both the ***actual and the subjectively-percei
 On a ***slow 3G*** network for instance, it takes without all the enhancements/optimizations a shocking 11.8min to finish loading and with all the optimizations, including caching, it only takes 2.38s to finish loading! 
 
 <details>
-    <summary>Slow 3G Network: Tests</summary>
+    <summary>Slow 3G Network Tests</summary>
 
 **Before Enhancements**
 ![Slow 3G Network Before](https://user-images.githubusercontent.com/23479038/77770212-3277fc80-7045-11ea-993d-3f5e42dfa172.png "Slow 3G Network Before")
