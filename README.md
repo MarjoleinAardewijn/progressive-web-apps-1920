@@ -831,11 +831,12 @@ After adding both caching techniques a lot of files are loaded instantly, which 
 
 ## Conclusion
 
-Because the codebase of this project is so small, you don't see any changes between the ***First Contentful Paint*** and ***First Meaningful Paint*** but it decreases a bit from 0.9s to 0.8s. And the ***Time To Interactive*** also decreases a bit from 1.0s to 0.8s.
+Because the codebase of this project is so small, you don't see any changes between the ***First Contentful Paint*** and ***First Meaningful Paint***, it decreases a bit from 0.9s to 0.8s. Also, the ***Time To Interactive*** decreased a bit from 1.0s to 0.8s.
 
-Where you see the differences is in the time the PWA needs to load. It went from 4.6s to 450ms for all the users who visit the website for the first time and 61ms for users who visited the website once before. All steps play a big role in optimizing the ***Critical Rendering Path***, but changing the images and caching are giving the biggest boost in performance. This because the `webImage`'s from the Rijksmuseum API are **very** big compared to the `headerImage`. And caching everything makes that a lot of files, including the images, the next time the user visits the page are almost instantly loaded. Which saves a lot of time! Especially for users who have slower networks.
+Where you see the differences is in the time the PWA needs to load. It went from 4.6s to 450ms for all the users who visit the website for the first time and 61ms for users who visited the website once before. All steps play a big role in optimizing the ***Critical Rendering Path***, but changing the images and caching are giving the biggest boost in performance. This because the `webImage`'s from the Rijksmuseum API are **very** big compared to the `headerImage`. And by caching a lot of files, including the images, the next time the user visits the website the page is almost instantly loaded. Which saves a lot of time! Especially for users who have slower networks.
+With this optimization I improved both the ***actual and the subjectively-perceived loading time***, since the users won't feels like they have to wait a long time before anything can be seen on the site and the actual loading time improved as well.
 
-On a ***slow 3G*** network for instance, it takes without all the enhancements a shocking 11.8min to finish loading and with all the enhancements, including caching, it takes only 2.38s to finish loading!
+On a ***slow 3G*** network for instance, it takes without all the enhancements/optimizations a shocking 11.8min to finish loading and with all the optimizations, including caching, it only takes 2.38s to finish loading! 
 
 <details>
     <summary>Slow 3G Network: Tests</summary>
