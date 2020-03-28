@@ -1,4 +1,4 @@
-# Rijksmuseum paintings PWA
+# Rijksmuseum Artists PWA
 
 ![App Home](https://user-images.githubusercontent.com/23479038/77656804-b31af800-6f74-11ea-9f78-0487e1a7a0a3.png "Rijksmuseum Schilders App")
 
