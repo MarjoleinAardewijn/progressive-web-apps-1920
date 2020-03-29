@@ -837,7 +837,7 @@ Where you see the differences is in the time the PWA needs to load. It went from
 
 By changing and lazy loading the images I improved both the ***actual and the subjectively-perceived loading time*** for users who visit the website for the first time, since the actual loading time improved and users won't feels like they have to wait a long time before anything can be seen on the site.
 
-On a ***slow 3G*** network for instance, it takes without all the enhancements/optimizations a shocking 11.8min to finish loading and with all the optimizations, including caching, it only takes 2.38s to finish loading! 
+On a ***slow 3G*** network, it takes without all the enhancements/optimizations a shocking 11.8min to finish loading and with all the optimizations, including caching, it only takes 2.38s to finish loading! 
 
 <details>
     <summary>Slow 3G Network Tests</summary>
