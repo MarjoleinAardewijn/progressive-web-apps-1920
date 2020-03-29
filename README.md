@@ -835,7 +835,7 @@ Because the codebase of this project is so small, you don't see any changes betw
 
 Where you see the differences is in the time the PWA needs to load. It went from 4.6s to 450ms for all the users who visit the website for the first time and 61ms for users who visited the website once before. All steps play a big role in optimizing the ***Critical Rendering Path***, but changing the images and caching are giving the biggest boost in performance. This because the `webImage`'s from the Rijksmuseum API are **very** big compared to the `headerImage`. And by caching a lot of files, including the images, the next time the user visits the website the page is almost instantly loaded. Which saves a lot of time! Especially for users who have slower networks.
 
-By changing and lazy loading the images I improved both the ***actual and the subjectively-perceived loading time*** for users who visit the website for the first time, since the users won't feels like they have to wait a long time before anything can be seen on the site and the actual loading time improved as well.
+By changing and lazy loading the images I improved both the ***actual and the subjectively-perceived loading time*** for users who visit the website for the first time, since the actual loadint time improved and users won't feels like they have to wait a long time before anything can be seen on the site.
 
 On a ***slow 3G*** network for instance, it takes without all the enhancements/optimizations a shocking 11.8min to finish loading and with all the optimizations, including caching, it only takes 2.38s to finish loading! 
 
