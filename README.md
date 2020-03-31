@@ -1,4 +1,4 @@
-# Rijksmuseum Artists PWA
+# Progressive Web Apps @cmda-minor-web · 2019-2020
 
 <p align="center">
   <a href="https://ancient-hamlet-10241.herokuapp.com/">
