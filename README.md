@@ -894,3 +894,5 @@ The sources I used the most during the development of the app are:
 - [Example from Declan Rek](https://github.com/decrek/progressive-web-apps-1920/tree/master/examples/movies-example)
 - [Regexp for caching images](https://serverfault.com/questions/881567/nginx-regex-rule-for-caching-images-override-the-root-location-block)
 - [README from Folkert-Jan van der Pol](https://github.com/follywolly/performance-matters-1819)
+- [CSS Water Effect](https://codepen.io/goodkatz/pen/LYPGxQz?editors=1100)
+- [Tabs (Radio Button Hack)](https://codepen.io/kylelavery88/pen/ZQLgJa)
