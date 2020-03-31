@@ -891,4 +891,4 @@ The sources I used the most during the development of the app are:
 
 In my [wiki](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/wiki/Bewijsvoering-Leerdoelen "Wiki") I have written 
 (in Dutch) a conclusion in which I discuss the learning objectives and criteria and how I have achieved them. This is the 
-evidence of this course and is based on the [rubric]( "Rubric").
+evidence of this course and is based on the [rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vSc48v1nrjcwH0llcTd68xyK7f2fDC2UL4d6h4ZNW3DU8ucez6ZOHiId1XSX0RP5ByvLC8p5pVUGZT4/pubhtml "Rubric").
