@@ -41,7 +41,7 @@ For more information about my WAFS project see the [README](https://github.com/M
 * [Feature Wishlist](#Feature-Wishlist)
 * [Sources](#Sources)
 * [Credits](#Credits)
-* [Evidence Learning Objectives](#Evidence Learning Objectives)
+* [Evidence Learning Objectives](#Evidence-Learning-Objectives)
 
 ## To do
 
