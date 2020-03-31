@@ -39,9 +39,9 @@ For more information about my WAFS project see the [README](https://github.com/M
 * [Performance Enhancements](#Performance-Enhancements)
 * [Conclusion](#Conclusion)
 * [Feature Wishlist](#Feature-Wishlist)
+* [Evidence Learning Objectives](#Evidence-Learning-Objectives)
 * [Sources](#Sources)
 * [Credits](#Credits)
-* [Evidence Learning Objectives](#Evidence-Learning-Objectives)
 
 ## To do
 
@@ -862,6 +862,12 @@ On a ***slow 3G*** network, it takes without all the enhancements/optimizations 
 - [ ] Live Search on the paintings.
 - [ ] Check which images are present in the viewport and don't lazy load them **depending on the device that is used**.
 
+## Evidence Learning Objectives
+
+In my [wiki](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/wiki/Bewijsvoering-Leerdoelen "Wiki") I have written 
+(in Dutch) a conclusion in which I discuss the learning objectives and criteria and how I have achieved them. This is the 
+evidence of this course and is based on the [rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vSc48v1nrjcwH0llcTd68xyK7f2fDC2UL4d6h4ZNW3DU8ucez6ZOHiId1XSX0RP5ByvLC8p5pVUGZT4/pubhtml "Rubric").
+
 ## Sources
 
 The sources I used the most during the development of the app are:
@@ -888,9 +894,3 @@ The sources I used the most during the development of the app are:
 - [Example from Declan Rek](https://github.com/decrek/progressive-web-apps-1920/tree/master/examples/movies-example)
 - [Regexp for caching images](https://serverfault.com/questions/881567/nginx-regex-rule-for-caching-images-override-the-root-location-block)
 - [README from Folkert-Jan van der Pol](https://github.com/follywolly/performance-matters-1819)
-
-## Evidence Learning Objectives
-
-In my [wiki](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/wiki/Bewijsvoering-Leerdoelen "Wiki") I have written 
-(in Dutch) a conclusion in which I discuss the learning objectives and criteria and how I have achieved them. This is the 
-evidence of this course and is based on the [rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vSc48v1nrjcwH0llcTd68xyK7f2fDC2UL4d6h4ZNW3DU8ucez6ZOHiId1XSX0RP5ByvLC8p5pVUGZT4/pubhtml "Rubric").
