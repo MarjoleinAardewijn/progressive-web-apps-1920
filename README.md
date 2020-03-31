@@ -1,5 +1,15 @@
 # Rijksmuseum Artists PWA
 
+<p align="center">
+  <a href="https://ancient-hamlet-10241.herokuapp.com/">
+    <img src="https://img.shields.io/badge/demo-LIVE-brightgreen.svg?style=flat-square" alt="Demo">
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/LICENSE.txt">
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="License">
+  </a>
+</p>
+
 ![App Home](https://user-images.githubusercontent.com/23479038/77656804-b31af800-6f74-11ea-9f78-0487e1a7a0a3.png "Rijksmuseum Schilders App")
 
 <details>
@@ -13,16 +23,6 @@
     
 ![App Details](https://user-images.githubusercontent.com/23479038/77656819-b6ae7f00-6f74-11ea-8535-a661746d839a.png "Rijksmuseum Schilders App - Details")
 </details>
-
-<p align="center">
-  <a href="https://ancient-hamlet-10241.herokuapp.com/">
-    <img src="https://img.shields.io/badge/demo-LIVE-brightgreen.svg?style=flat-square" alt="Demo">
-  </a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/LICENSE.txt">
-    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="License">
-  </a>
-</p>
 
 ## Description
 
