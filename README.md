@@ -14,6 +14,16 @@
 ![App Details](https://user-images.githubusercontent.com/23479038/77656819-b6ae7f00-6f74-11ea-8535-a661746d839a.png "Rijksmuseum Schilders App - Details")
 </details>
 
+<p align="center">
+  <a href="https://ancient-hamlet-10241.herokuapp.com/">
+    <img src="https://img.shields.io/badge/demo-LIVE-brightgreen.svg?style=flat-square" alt="Demo">
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/LICENSE.txt">
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="License">
+  </a>
+</p>
+
 ## Description
 
 For this project I used my project from WAFS and refactored it so that it renders server-side instead of client-side.
@@ -22,8 +32,7 @@ For more information about my WAFS project see the [README](https://github.com/M
 ## Table of Contents
 
 * [To Do](#To-do)
-* [Live Demo](#Live-demo)
-* [Usage](#Usage)
+* [Installation](#Installation)
   * [Development](#Development)
   * [Production](#Production)
 * [API](#Api)
@@ -32,7 +41,7 @@ For more information about my WAFS project see the [README](https://github.com/M
 * [Feature Wishlist](#Feature-Wishlist)
 * [Sources](#Sources)
 * [Credits](#Credits)
-* [Licence](#Licence)
+* [Evidence Learning Objectives](#Evidence Learning Objectives)
 
 ## To do
 
@@ -47,12 +56,8 @@ For more information about my WAFS project see the [README](https://github.com/M
 - [x] Cache images.
 - [x] Optimize the Critical Rendering Path.
 
-## Live Demo
+## Installation
 
-The live demo of the app can be found here:
-[Live Demo Link](https://ancient-hamlet-10241.herokuapp.com/)
-
-## Usage
 See the installation guide to learn how to install and use the app.
 
 <details>
@@ -882,8 +887,8 @@ The sources I used the most during the development of the app are:
 - [Regexp for caching images](https://serverfault.com/questions/881567/nginx-regex-rule-for-caching-images-override-the-root-location-block)
 - [README from Folkert-Jan van der Pol](https://github.com/follywolly/performance-matters-1819)
 
-## Licence
+## Evidence Learning Objectives
 
-[MIT License](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/blob/master/LICENSE.txt).
-
-Copyright (c) 2020 Marjolein Aardewijn
+In my [wiki](https://github.com/MarjoleinAardewijn/progressive-web-apps-1920/wiki/Bewijsvoering-Leerdoelen "Wiki") I have written 
+(in Dutch) a conclusion in which I discuss the learning objectives and criteria and how I have achieved them. This is the 
+evidence of this course and is based on the [rubric]( "Rubric").
